@@ -50,16 +50,6 @@ export function MessageBubble({ message }: MessageBubbleProps) {
 
   const { thoughts, mainContent, hasOpenThink } = parseContent(message.content || "");
 
-  // Debug logging
-  if (message.content?.includes('<think>')) {
-    console.log('=== MESSAGE WITH THINK TAG ===');
-    console.log('Full content:', message.content);
-    console.log('Has open think:', hasOpenThink);
-    console.log('Thoughts:', thoughts);
-    console.log('Main content:', mainContent);
-    console.log('==============================');
-  }
-
   // Auto-expand the thinking section when streaming
   React.useEffect(() => {
     if (hasOpenThink && !autoExpandedThinking) {
