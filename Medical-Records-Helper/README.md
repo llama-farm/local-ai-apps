@@ -2,6 +2,14 @@
 
 A **100% local, privacy-first** medical assistant that helps you understand your medical records using AI and evidence-based medical knowledge. Built with Next.js and [LlamaFarm](https://docs.llamafarm.dev), all PDF processing happens entirely in your browser – your health data never leaves your device.
 
+## 📺 Video Demo
+
+**Watch the assistant in action** (2 minutes):
+
+[![Medical Records Helper Demo](https://img.youtube.com/vi/H6WKKzYPLlQ/0.jpg)](https://youtu.be/H6WKKzYPLlQ)
+
+[▶️ Watch on YouTube](https://youtu.be/H6WKKzYPLlQ)
+
 ## ✨ Key Features
 
 - **🔒 Complete Privacy** – PDFs parsed client-side, no server uploads, PHI stays on your device
