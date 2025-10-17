@@ -56,11 +56,9 @@ cd medical-records-project
 lf init
 lf start
 
-# 4. Download & process medical textbooks (2-3 hours)
-git clone https://huggingface.co/datasets/MedRAG/textbooks ~/Downloads/textbooks
-node scripts/convert-medrag-to-txt.js ~/Downloads/textbooks
+# 4. Process included medical textbooks (2-3 hours)
 lf datasets add medical_textbooks -s medical_textbook_processor -b medical_db
-lf datasets ingest medical_textbooks ./medrag-textbooks-txt/*.txt
+lf datasets ingest medical_textbooks ./data/textbooks/*.txt
 lf datasets process medical_textbooks
 
 # 5. Configure & run frontend
@@ -269,30 +267,11 @@ curl http://localhost:8000/health
 
 ---
 
-### 4. Download Medical Knowledge Base
+### 4. Medical Knowledge Base (Included)
 
-We use the **MedRAG medical textbooks dataset** – 18 authoritative medical textbooks with 125,830 chunks.
+The **MedRAG medical textbooks dataset** is already included in `data/textbooks/` – 18 authoritative medical textbooks with 125,830 chunks across 93MB of medical knowledge.
 
-#### Clone the dataset
-
-```bash
-cd ~/Downloads  # or your preferred location
-git clone https://huggingface.co/datasets/MedRAG/textbooks
-cd textbooks
-```
-
-**⚠️ Size warning:** ~2GB download, 10-30 minutes depending on connection.
-
-#### Convert to text format
-
-The dataset comes in JSON. Convert to plain text for LlamaFarm:
-
-```bash
-cd /path/to/medical-records-project
-node scripts/convert-medrag-to-txt.js ~/Downloads/textbooks
-```
-
-This creates `medrag-textbooks-txt/` with clean `.txt` files (one per textbook).
+**No download required!** The text files are ready to ingest.
 
 **📖 Dataset details:** See [Medical Knowledge Base](#-medical-knowledge-base) section below.
 
@@ -317,10 +296,10 @@ Flags explained:
 #### Ingest files
 
 ```bash
-lf datasets ingest medical_textbooks ./medrag-textbooks-txt/*.txt
+lf datasets ingest medical_textbooks ./data/textbooks/*.txt
 ```
 
-This uploads all 18 textbooks and queues them for processing.
+This uploads all 18 included textbooks and queues them for processing.
 
 **Verify files added:**
 ```bash
@@ -362,7 +341,7 @@ To verify everything works before committing to 2-3 hours:
 lf datasets add test_medical -s medical_textbook_processor -b test_db
 
 # Ingest just one textbook
-lf datasets ingest test_medical ./medrag-textbooks-txt/Anatomy_Gray.txt
+lf datasets ingest test_medical ./data/textbooks/Anatomy_Gray.txt
 
 # Process (5-10 minutes)
 lf datasets process test_medical
@@ -880,7 +859,7 @@ lf rag stats --database medical_db
 **If missing, recreate:**
 ```bash
 lf datasets add medical_textbooks -s medical_textbook_processor -b medical_db
-lf datasets ingest medical_textbooks ./medrag-textbooks-txt/*.txt
+lf datasets ingest medical_textbooks ./data/textbooks/*.txt
 lf datasets process medical_textbooks
 ```
 
@@ -977,7 +956,7 @@ rag:
 **Process in batches:**
 ```bash
 # Process one textbook at a time
-lf datasets ingest medical_textbooks ./medrag-textbooks-txt/Anatomy_Gray.txt
+lf datasets ingest medical_textbooks ./data/textbooks/Anatomy_Gray.txt
 lf datasets process medical_textbooks
 # Wait for completion, then add next file
 ```
