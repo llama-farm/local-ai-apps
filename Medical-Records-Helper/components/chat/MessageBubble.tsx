@@ -23,34 +23,24 @@ export function MessageBubble({ message }: MessageBubbleProps) {
     let mainContent = content;
     let hasOpenThink = false;
 
-    // First, extract all closed <think> blocks
-    let match;
-    const closedThinks: string[] = [];
-    while ((match = thinkRegex.exec(content)) !== null) {
-      closedThinks.push(match[1].trim());
-    }
-
     // Check if there's an unclosed <think> tag (thinking in progress)
-    const lastClosedIndex = content.lastIndexOf('</think>');
-    const lastOpenIndex = content.lastIndexOf('<think>');
-
-    if (lastOpenIndex > lastClosedIndex) {
-      // There's an open <think> tag after the last closed one
+    if (content.includes("<think>") && !content.match(/<think>[\s\S]*?<\/think>/)) {
       hasOpenThink = true;
-      const openThinkContent = content.substring(lastOpenIndex + 7); // 7 = length of "<think>"
-      closedThinks.push(openThinkContent.trim());
+      const openThinkMatch = content.match(/<think>([\s\S]*?)$/);
+      if (openThinkMatch) {
+        thoughts.push(openThinkMatch[1].trim());
+        // Remove everything from <think> onwards from main content
+        mainContent = content.substring(0, content.indexOf('<think>')).trim();
+      }
+    } else {
+      // Extract all closed <think> blocks
+      let match;
+      while ((match = thinkRegex.exec(content)) !== null) {
+        thoughts.push(match[1].trim());
+      }
+      // Remove <think> blocks from main content
+      mainContent = content.replace(thinkRegex, '').trim();
     }
-
-    thoughts.push(...closedThinks);
-
-    // Remove ALL <think>...</think> and unclosed <think>... from main content
-    mainContent = content.replace(thinkRegex, ''); // Remove closed blocks
-    if (hasOpenThink) {
-      // Remove from last <think> onwards
-      const openTagIndex = content.lastIndexOf('<think>');
-      mainContent = content.substring(0, openTagIndex);
-    }
-    mainContent = mainContent.trim();
 
     return { thoughts, mainContent, hasOpenThink };
   };
