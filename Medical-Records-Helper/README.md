@@ -42,26 +42,49 @@ A **100% local, privacy-first** medical assistant that helps you understand your
 For experienced developers who want to get running quickly:
 
 ```bash
-# 1. Install prerequisites
-brew install --cask docker ollama
-curl -fsSL https://raw.githubusercontent.com/llama-farm/llamafarm/main/install.sh | bash
+# 1. Install Docker
+# macOS: https://docs.docker.com/desktop/install/mac-install/
+brew install --cask docker
+# OR download from: https://www.docker.com/products/docker-desktop
 
-# 2. Pull AI models (1.4GB total)
+# Linux:
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+
+# Windows: Download from https://www.docker.com/products/docker-desktop
+
+# 2. Install Ollama
+# Download from: https://ollama.com/download
+# macOS:
+brew install ollama
+# Linux:
+curl -fsSL https://ollama.com/install.sh | sh
+# Windows: Download installer from https://ollama.com/download
+
+# Configure Ollama context window (important!)
+# Open Ollama → Settings → Advanced → Set context window to 32768+
+
+# 3. Install LlamaFarm CLI
+curl -fsSL https://raw.githubusercontent.com/llama-farm/llamafarm/main/install.sh | bash
+# Windows: Download lf.exe from https://github.com/llama-farm/llamafarm/releases
+
+# 4. Pull AI models (1.4GB total, 5-15 min)
 ollama pull gemma3:1b
 ollama pull qwen3:1.7B
 ollama pull nomic-embed-text
 
-# 3. Initialize LlamaFarm
-cd medical-records-project
+# 5. Initialize LlamaFarm
+cd Medical-Records-Helper
 lf init
-lf start
+lf start  # May take a few minutes on first run (downloads Docker images)
 
-# 4. Process included medical textbooks (2-3 hours)
+# 6. Process included medical textbooks (2-3 hours)
+lf datasets delete medical_textbooks  # In case one already exists
 lf datasets add medical_textbooks -s medical_textbook_processor -b medical_db
 lf datasets ingest medical_textbooks ./data/textbooks/*.txt
-lf datasets process medical_textbooks
+lf datasets process medical_textbooks  # Creates 300K+ vectors
 
-# 5. Configure & run frontend
+# 7. Configure & run frontend
 cp .env.local.example .env.local
 npm install
 npm run dev
