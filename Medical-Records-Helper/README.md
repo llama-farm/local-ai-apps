@@ -74,7 +74,7 @@ ollama pull qwen3:1.7B
 ollama pull nomic-embed-text
 
 # 5. Initialize LlamaFarm
-cd Medical-Records-Helper
+cd medical-records-project
 lf init
 lf start  # May take a few minutes on first run (downloads Docker images)
 
