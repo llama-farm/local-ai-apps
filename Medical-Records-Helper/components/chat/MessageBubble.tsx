@@ -29,7 +29,8 @@ export function MessageBubble({ message }: MessageBubbleProps) {
       const openThinkMatch = content.match(/<think>([\s\S]*?)$/);
       if (openThinkMatch) {
         thoughts.push(openThinkMatch[1].trim());
-        mainContent = content.replace(/<think>[\s\S]*$/, '').trim();
+        // Remove everything from <think> onwards from main content
+        mainContent = content.substring(0, content.indexOf('<think>')).trim();
       }
     } else {
       // Extract all closed <think> blocks
