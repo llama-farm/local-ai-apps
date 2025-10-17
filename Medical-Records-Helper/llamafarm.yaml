@@ -1,0 +1,145 @@
+version: v1
+name: medical-records-project
+namespace: default
+prompts:
+- role: system
+  content: 'You are a knowledgeable Medical Assistant with access to comprehensive
+    medical textbooks.
+
+    When answering questions:
+
+    - Provide clear, accurate medical information based on the retrieved context
+
+    - Define medical terminology in layman''s terms
+
+    - Always cite your sources when referencing specific information
+
+    - If you''re unsure or the information isn''t in the context, say so
+
+    - Remember this is for educational purposes only, not medical advice
+
+    '
+rag:
+  databases:
+  - name: medical_db
+    type: ChromaStore
+    config:
+      collection_name: medical_textbooks
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: medical_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        base_url: http://host.docker.internal:11434
+        dimension: 768
+        batch_size: 16
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: medical_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 6
+      default: true
+    default_embedding_strategy: medical_embeddings
+    default_retrieval_strategy: medical_search
+  data_processing_strategies:
+  - name: medical_textbook_processor
+    description: Simple processor for medical textbook text files - preserves paragraphs
+      and semantic meaning
+    parsers:
+    - type: TextParser_Python
+      config:
+        chunk_size: 800
+        chunk_overlap: 200
+        chunk_strategy: paragraphs
+        encoding: utf-8
+        clean_text: false
+        extract_metadata: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    extractors:
+    - type: KeywordExtractor
+      config:
+        algorithm: yake
+        max_keywords: 15
+        min_keyword_length: 3
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    - type: ContentStatisticsExtractor
+      config:
+        include_readability: true
+        include_vocabulary: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 20
+datasets:
+- name: medical_textbooks
+  data_processing_strategy: medical_textbook_processor
+  database: medical_db
+  files:
+  - 5c46b36a9272be8ed4f2d5ebbef2ebfb72c66488f8e57e8a2656c443bd5d1061
+  - 460511d2bd681a5feaf0849a538106e86e6c8229138cd57a9cc62b9b21b848dd
+  - 7c85eee446571c7680389593056207cf182dd5b0f719c0c3c052a002f3ad6dae
+  - ff52e4ca9b23d05919f027b0aa870ae326d00d68c6f56a50a4619684e66db79d
+  - 0837ac8e1793f62dd7362f3671b05313f1a2d8b780798e77c5e12670aac9ecf4
+  - 4cf4d8c4e2153f84a465fc83339cfb313bca6031466ba31526e7ec1b626ebb76
+  - 797e350ae346ae9f67295136cd31ad8eb325581e3eb757d9e1dfad2f76e7d7c8
+  - bb22f6b5b5645afbf7aa6adb73653d4ba4179c593248b66e530d2776efae605d
+  - f8b54faf1605b7e79088cff79d43dc48b18b019170e91cd11d13b2f28731ad2d
+  - 9056cc4ebe1cfe0a89f10a11f51c9408a157398391ee8147434e1e6a030355ff
+  - 0e139cb53f0350158cffee95d682d854841a4d855ad2b6cde51f650b67918be5
+  - 7fd7674158522f89688dbfe2f9ffdb8a819d9dda9174dd882cea79b56db75df0
+  - 1ceefe83f54f7d013a9c0bc73f631addfb18c4c84443c2a421dbd8e6f6e30f04
+  - 3224d0c786bfdf4205a7f28240a8cfd4f6c4451218bc3ff1615a6b568d45b3b5
+  - 73876c69e207d1d43f63a2d970802c7caed908adac3a6b3e33c79f63f87898bb
+  - 11f6adc8f39fb9a13f90e54e90bbf1c0b283116ccc510649a56e3d37ffa9ecaf
+  - acb2a2a799cafb1af088c0e2ebe7ad5da32ec5495e47737a3eb0ee845fe0e3ee
+  - e05b7b8ef388d3114e1a13183e11634aad2544ee12b240951a25e9e3376555e3
+  - 65425ad69f2ee4f66d66f5e2d8b3ea44b12ae0bcd93c9d259cc82522eac27560
+- name: anatomy_gray
+  data_processing_strategy: medical_textbook_processor
+  database: medical_db
+  files:
+  - 460511d2bd681a5feaf0849a538106e86e6c8229138cd57a9cc62b9b21b848dd
+  - 7c85eee446571c7680389593056207cf182dd5b0f719c0c3c052a002f3ad6dae
+  - ff52e4ca9b23d05919f027b0aa870ae326d00d68c6f56a50a4619684e66db79d
+  - 0837ac8e1793f62dd7362f3671b05313f1a2d8b780798e77c5e12670aac9ecf4
+  - 4cf4d8c4e2153f84a465fc83339cfb313bca6031466ba31526e7ec1b626ebb76
+  - 797e350ae346ae9f67295136cd31ad8eb325581e3eb757d9e1dfad2f76e7d7c8
+  - bb22f6b5b5645afbf7aa6adb73653d4ba4179c593248b66e530d2776efae605d
+  - f8b54faf1605b7e79088cff79d43dc48b18b019170e91cd11d13b2f28731ad2d
+  - 9056cc4ebe1cfe0a89f10a11f51c9408a157398391ee8147434e1e6a030355ff
+  - 0e139cb53f0350158cffee95d682d854841a4d855ad2b6cde51f650b67918be5
+  - 7fd7674158522f89688dbfe2f9ffdb8a819d9dda9174dd882cea79b56db75df0
+  - 1ceefe83f54f7d013a9c0bc73f631addfb18c4c84443c2a421dbd8e6f6e30f04
+  - 3224d0c786bfdf4205a7f28240a8cfd4f6c4451218bc3ff1615a6b568d45b3b5
+  - 73876c69e207d1d43f63a2d970802c7caed908adac3a6b3e33c79f63f87898bb
+  - 11f6adc8f39fb9a13f90e54e90bbf1c0b283116ccc510649a56e3d37ffa9ecaf
+  - acb2a2a799cafb1af088c0e2ebe7ad5da32ec5495e47737a3eb0ee845fe0e3ee
+  - e05b7b8ef388d3114e1a13183e11634aad2544ee12b240951a25e9e3376555e3
+  - 65425ad69f2ee4f66d66f5e2d8b3ea44b12ae0bcd93c9d259cc82522eac27560
+- name: more-text-books
+  data_processing_strategy: medical_textbook_processor
+  database: medical_db
+  files: []
+runtime:
+  models:
+  - name: default
+    description: Capable Qwen model for medical Q&A synthesis
+    provider: ollama
+    model: qwen3:1.7B
+    prompt_format: unstructured
+    provider_config: {}
+  - name: fast
+    description: Fast small model for query generation and structured outputs
+    provider: ollama
+    model: gemma3:1b
+    prompt_format: unstructured
+    provider_config: {}
