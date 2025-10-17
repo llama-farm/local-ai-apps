@@ -23,29 +23,42 @@ export function MessageBubble({ message }: MessageBubbleProps) {
     let mainContent = content;
     let hasOpenThink = false;
 
-    // Check if there's an unclosed <think> tag (thinking in progress)
-    if (content.includes("<think>") && !content.match(/<think>[\s\S]*?<\/think>/)) {
+    // First, extract all CLOSED <think> blocks
+    let match;
+    while ((match = thinkRegex.exec(content)) !== null) {
+      thoughts.push(match[1].trim());
+    }
+
+    // Remove all closed <think>...</think> blocks from main content
+    mainContent = content.replace(thinkRegex, '');
+
+    // Now check if there's an UNCLOSED <think> tag remaining
+    if (mainContent.includes("<think>")) {
       hasOpenThink = true;
-      const openThinkMatch = content.match(/<think>([\s\S]*?)$/);
-      if (openThinkMatch) {
-        thoughts.push(openThinkMatch[1].trim());
-        // Remove everything from <think> onwards from main content
-        mainContent = content.substring(0, content.indexOf('<think>')).trim();
-      }
+      const thinkIndex = mainContent.indexOf('<think>');
+      const thinkContent = mainContent.substring(thinkIndex + 7); // Skip past "<think>"
+      thoughts.push(thinkContent.trim());
+      // Main content is everything BEFORE the unclosed <think>
+      mainContent = mainContent.substring(0, thinkIndex).trim();
     } else {
-      // Extract all closed <think> blocks
-      let match;
-      while ((match = thinkRegex.exec(content)) !== null) {
-        thoughts.push(match[1].trim());
-      }
-      // Remove <think> blocks from main content
-      mainContent = content.replace(thinkRegex, '').trim();
+      // Just trim if no unclosed think
+      mainContent = mainContent.trim();
     }
 
     return { thoughts, mainContent, hasOpenThink };
   };
 
   const { thoughts, mainContent, hasOpenThink } = parseContent(message.content || "");
+
+  // Debug logging
+  if (message.content?.includes('<think>')) {
+    console.log('=== MESSAGE WITH THINK TAG ===');
+    console.log('Full content:', message.content);
+    console.log('Has open think:', hasOpenThink);
+    console.log('Thoughts:', thoughts);
+    console.log('Main content:', mainContent);
+    console.log('==============================');
+  }
 
   // Auto-expand the thinking section when streaming
   React.useEffect(() => {
