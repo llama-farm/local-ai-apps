@@ -23,23 +23,35 @@ export default function RootLayout({
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              // Suppress MetaMask and other browser extension errors in development
-              if (typeof window !== 'undefined') {
-                const originalError = console.error;
-                console.error = (...args) => {
-                  const errorString = args.join(' ');
-                  // Suppress known extension errors
-                  if (
-                    errorString.includes('MetaMask') ||
-                    errorString.includes('chrome-extension://') ||
-                    errorString.includes('moz-extension://') ||
-                    errorString.includes('dcvalue')
-                  ) {
-                    return;
-                  }
-                  originalError.apply(console, args);
+              // Suppress MetaMask and other browser extension errors
+              (function() {
+                const shouldSuppress = (args) => {
+                  const message = args.join(' ');
+                  return (
+                    message.includes('MetaMask') ||
+                    message.includes('chrome-extension://') ||
+                    message.includes('moz-extension://') ||
+                    message.includes('dcvalue') ||
+                    message.includes('Failed to connect to MetaMask') ||
+                    message.includes('__nextjs_original-stack-frame')
+                  );
                 };
-              }
+
+                const originalError = console.error;
+                const originalWarn = console.warn;
+
+                console.error = function(...args) {
+                  if (!shouldSuppress(args)) {
+                    originalError.apply(console, args);
+                  }
+                };
+
+                console.warn = function(...args) {
+                  if (!shouldSuppress(args)) {
+                    originalWarn.apply(console, args);
+                  }
+                };
+              })();
             `,
           }}
         />
