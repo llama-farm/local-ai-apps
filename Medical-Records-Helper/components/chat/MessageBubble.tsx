@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Message } from "@/lib/types";
@@ -14,6 +14,7 @@ interface MessageBubbleProps {
 export function MessageBubble({ message }: MessageBubbleProps) {
   const isUser = message.role === "user";
   const [expandedThoughts, setExpandedThoughts] = useState<Record<number, boolean>>({});
+  const [autoExpandedThinking, setAutoExpandedThinking] = useState(false);
 
   // Parse content to separate thinking from main response
   const parseContent = (content: string) => {
@@ -44,6 +45,15 @@ export function MessageBubble({ message }: MessageBubbleProps) {
   };
 
   const { thoughts, mainContent, hasOpenThink } = parseContent(message.content || "");
+
+  // Auto-expand the thinking section when streaming
+  React.useEffect(() => {
+    if (hasOpenThink && !autoExpandedThinking) {
+      const lastThoughtIndex = thoughts.length - 1;
+      setExpandedThoughts(prev => ({ ...prev, [lastThoughtIndex]: true }));
+      setAutoExpandedThinking(true);
+    }
+  }, [hasOpenThink, thoughts.length, autoExpandedThinking]);
 
   return (
     <div className={cn("flex", isUser ? "justify-end" : "justify-start")}>
