@@ -6,7 +6,8 @@ prompts:
   messages:
   - role: system
     content: "Find FDA requests and extract them WITH ENOUGH CONTEXT to be self-contained.\n\n\
-      CRITICAL: Include surrounding details so the request is SPECIFIC.\n\
+      CRITICAL: Extract the ACTUAL request from the document, NOT examples or instructions.\n\n\
+      Include surrounding details so the request is SPECIFIC:\n\
       - BAD: \"Submit the data set\" (WHICH data set?)\n\
       - GOOD: \"Submit the immunogenicity data set including all antibody test results\"\n\n\
       - BAD: \"Please provide a report\"\n\
@@ -19,9 +20,11 @@ prompts:
       - Vague requests without context\n\
       - Statements (\"This is...\", \"The document...\")\n\
       - Meta-descriptions (\"Review...\", \"Extract...\")\n\
-      - Headers, titles, boilerplate\n\n\
-      Output format: <task>request with enough context to be searchable</task>\n\
-      If no specific requests: <tasks></tasks>"
+      - Headers, titles, boilerplate\n\
+      - Text from these instructions (like \"request with enough context\")\n\n\
+      Output format: <task>COPY THE EXACT FDA REQUEST FROM THE DOCUMENT</task>\n\
+      If no specific requests: <tasks></tasks>\n\n\
+      IMPORTANT: Extract ACTUAL requests from the FDA document, NOT placeholder text or examples."
 - name: fda_task_validator
   messages:
   - role: system
@@ -44,12 +47,20 @@ prompts:
 - name: fda_answer_finder
   messages:
   - role: system
-    content: "Does the text contain an answer to the FDA's request?\n\nLook for:\n\
-      - Specific data or numbers\n- Decisions or commitments\n- Direct responses\n\
-      \nDO NOT match if:\n- Text only acknowledges the request\n- Text is unrelated\
-      \ (different topic)\n- Keywords match but content doesn't answer\n\nIf answered:\n\
-      <answered>yes</answered>\n<quote>relevant text</quote>\n\nIf not answered:\n\
-      <answered>no</answered>"
+    content: "Does the text contain an answer to the FDA's request?\n\n\
+      CRITICAL: If you find an answer, you MUST extract the EXACT text from the document.\n\n\
+      Look for:\n\
+      - Specific data or numbers\n\
+      - Decisions or commitments\n\
+      - Direct responses with details\n\n\
+      DO NOT match if:\n\
+      - Text only acknowledges the request (\"We received your question\")\n\
+      - Text is unrelated (different topic)\n\
+      - Keywords match but content doesn't actually answer\n\n\
+      Output format:\n\
+      If answered: <answered>yes</answered><quote>COPY THE EXACT TEXT FROM THE DOCUMENT HERE</quote>\n\
+      If not answered: <answered>no</answered>\n\n\
+      IMPORTANT: The <quote> tag must contain the ACTUAL text from the document, NOT placeholder text like 'relevant text'."
 rag:
   databases:
   - name: medical_db

@@ -2,23 +2,19 @@ version: v1
 name: medical-records-project
 namespace: default
 prompts:
-- role: system
-  content: 'You are a knowledgeable Medical Assistant with access to comprehensive
-    medical textbooks.
+- name: medical_assistant
+  messages:
+  - role: system
+    content: |
+      You are a knowledgeable Medical Assistant with access to comprehensive medical textbooks.
 
-    When answering questions:
+      When answering questions:
+      - Provide clear, accurate medical information based on the retrieved context
+      - Define medical terminology in layman's terms
+      - Always cite your sources when referencing specific information
+      - If you're unsure or the information isn't in the context, say so
+      - Remember this is for educational purposes only, not medical advice
 
-    - Provide clear, accurate medical information based on the retrieved context
-
-    - Define medical terminology in layman''s terms
-
-    - Always cite your sources when referencing specific information
-
-    - If you''re unsure or the information isn''t in the context, say so
-
-    - Remember this is for educational purposes only, not medical advice
-
-    '
 rag:
   databases:
   - name: medical_db
@@ -130,16 +126,21 @@ datasets:
   database: medical_db
   files: []
 runtime:
+  default_model: default
   models:
   - name: default
     description: Capable Qwen model for medical Q&A synthesis
     provider: ollama
     model: qwen3:1.7B
     prompt_format: unstructured
+    prompts:
+      - medical_assistant
     provider_config: {}
   - name: fast
     description: Fast small model for query generation and structured outputs
     provider: ollama
     model: gemma3:1b
     prompt_format: unstructured
+    prompts:
+      - medical_assistant
     provider_config: {}

@@ -21,6 +21,23 @@ A privacy-first medical assistant that helps you understand your medical records
 
 ---
 
+### 📋 [FDA Records Agent](./FDA-Records-Agent)
+
+A privacy-first AI agent for analyzing FDA documents, warning letters, and regulatory filings using advanced RAG and medical knowledge.
+
+**Key Features:**
+- 🔒 **Complete Privacy** – PDFs parsed client-side, documents never leave your device
+- 🤖 **Multi-Hop Agentic RAG** – AI orchestrates query generation, knowledge retrieval, and synthesis
+- 📚 **Medical Knowledge Base** – 125,830 chunks from 18 authoritative textbooks
+- ⚡ **Two-Tier AI Architecture** – Fast model for queries, capable model for analysis
+- 💬 **Streaming Chat Interface** – Real-time regulatory analysis with citations
+
+**Tech Stack:** Next.js, LlamaFarm, Ollama, ChromaDB, shadcn/ui
+
+**[View Documentation →](./FDA-Records-Agent/README.md)**
+
+---
+
 ## About LlamaFarm
 
 [LlamaFarm](https://docs.llamafarm.dev) is a local-first AI infrastructure framework that makes it easy to build privacy-preserving AI applications. It provides:
