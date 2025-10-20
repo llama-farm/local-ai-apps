@@ -1,0 +1,272 @@
+version: v1
+name: fda-records-agent-test
+namespace: default
+prompts:
+- name: fda_question_extractor
+  messages:
+  - role: system
+    content: "Find FDA requests and extract them WITH ENOUGH CONTEXT to be self-contained.\n\n\
+      CRITICAL: Include surrounding details so the request is SPECIFIC.\n\
+      - BAD: \"Submit the data set\" (WHICH data set?)\n\
+      - GOOD: \"Submit the immunogenicity data set including all antibody test results\"\n\n\
+      - BAD: \"Please provide a report\"\n\
+      - GOOD: \"Please provide a manufacturing control strategy report addressing viral testing\"\n\n\
+      Look for:\n\
+      - Questions with specifics (\"Does X require Y?\")\n\
+      - Commands with details (\"Include glycosylation profiling data...\")\n\
+      - Requests with context (\"Provide safety data from Study 101...\")\n\n\
+      DO NOT extract:\n\
+      - Vague requests without context\n\
+      - Statements (\"This is...\", \"The document...\")\n\
+      - Meta-descriptions (\"Review...\", \"Extract...\")\n\
+      - Headers, titles, boilerplate\n\n\
+      Output format: <task>request with enough context to be searchable</task>\n\
+      If no specific requests: <tasks></tasks>"
+- name: fda_task_validator
+  messages:
+  - role: system
+    content: "You are validating if a text is a REAL, SPECIFIC FDA task.\n\n\
+      IMPORTANT: Most document chunks contain NO tasks. Be VERY strict.\n\n\
+      A REAL FDA task must:\n\
+      - Be SPECIFIC (not vague like \"Submit the data set\" or \"Please provide a request\")\n\
+      - Include enough context to understand WHAT is being requested\n\
+      - Be actionable on its own\n\n\
+      REJECT if:\n\
+      - Too vague (\"Submit the report\" - WHICH report?)\n\
+      - Generic meta-questions (\"Please provide a question about the FDA\")\n\
+      - Lacks specificity (\"Please provide a request for information\")\n\
+      - Statements or descriptions (\"This is...\", \"The document...\")\n\
+      - Headers or boilerplate text\n\
+      - FDA opinions without requests\n\n\
+      Answer with ONLY:\n\
+      <valid>yes</valid> if it's a SPECIFIC, real FDA task\n\
+      <valid>no</valid> if it's vague or not a real task"
+- name: fda_answer_finder
+  messages:
+  - role: system
+    content: "Does the text contain an answer to the FDA's request?\n\nLook for:\n\
+      - Specific data or numbers\n- Decisions or commitments\n- Direct responses\n\
+      \nDO NOT match if:\n- Text only acknowledges the request\n- Text is unrelated\
+      \ (different topic)\n- Keywords match but content doesn't answer\n\nIf answered:\n\
+      <answered>yes</answered>\n<quote>relevant text</quote>\n\nIf not answered:\n\
+      <answered>no</answered>"
+rag:
+  databases:
+  - name: medical_db
+    type: ChromaStore
+    config:
+      collection_name: medical_textbooks
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: medical_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        base_url: http://host.docker.internal:11434
+        dimension: 768
+        batch_size: 1
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: medical_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 6
+      default: true
+    default_embedding_strategy: medical_embeddings
+    default_retrieval_strategy: medical_search
+  - name: fda_letters_full
+    type: ChromaStore
+    config:
+      collection_name: fda_letters_full
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: fda_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        base_url: http://host.docker.internal:11434
+        dimension: 768
+        batch_size: 1
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: fda_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 100
+      default: true
+    default_embedding_strategy: fda_embeddings
+    default_retrieval_strategy: fda_search
+  - name: fda_corpus_chunked
+    type: ChromaStore
+    config:
+      collection_name: fda_corpus_chunked
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: fda_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        base_url: http://host.docker.internal:11434
+        dimension: 768
+        batch_size: 1
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: fda_corpus_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 3
+      default: true
+    default_embedding_strategy: fda_embeddings
+    default_retrieval_strategy: fda_corpus_search
+  data_processing_strategies:
+  - name: medical_textbook_processor
+    description: Simple processor for medical textbook text files - preserves paragraphs
+      and semantic meaning
+    parsers:
+    - type: TextParser_Python
+      config:
+        chunk_size: 800
+        chunk_overlap: 200
+        chunk_strategy: paragraphs
+        encoding: utf-8
+        clean_text: false
+        extract_metadata: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    extractors:
+    - type: KeywordExtractor
+      config:
+        algorithm: yake
+        max_keywords: 15
+        min_keyword_length: 3
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    - type: ContentStatisticsExtractor
+      config:
+        include_readability: true
+        include_vocabulary: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 20
+  - name: fda_full_document_processor
+    description: Processor for FDA documents with large chunks for question extraction
+    parsers:
+    - type: PDFParser_LlamaIndex
+      config:
+        chunk_size: 2000
+        chunk_overlap: 400
+        chunk_strategy: sentence
+        extract_metadata: true
+      file_include_patterns:
+      - '*.pdf'
+      priority: 10
+    - type: TextParser_Python
+      config:
+        chunk_size: 2000
+        chunk_overlap: 400
+        chunk_strategy: paragraphs
+        encoding: utf-8
+        clean_text: false
+        extract_metadata: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    extractors:
+    - type: KeywordExtractor
+      config:
+        algorithm: yake
+        max_keywords: 10
+        min_keyword_length: 3
+      file_include_patterns:
+      - '*.pdf'
+      - '*.txt'
+      priority: 10
+  - name: fda_chunked_processor
+    description: Processor for FDA documents with small chunks for RAG retrieval
+    parsers:
+    - type: PDFParser_LlamaIndex
+      config:
+        chunk_size: 800
+        chunk_overlap: 200
+        chunk_strategy: paragraphs
+        extract_metadata: true
+      file_include_patterns:
+      - '*.pdf'
+      priority: 10
+    - type: TextParser_Python
+      config:
+        chunk_size: 800
+        chunk_overlap: 200
+        chunk_strategy: paragraphs
+        encoding: utf-8
+        clean_text: false
+        extract_metadata: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    extractors:
+    - type: KeywordExtractor
+      config:
+        algorithm: yake
+        max_keywords: 15
+        min_keyword_length: 3
+      file_include_patterns:
+      - '*.pdf'
+      - '*.txt'
+      priority: 10
+datasets:
+- name: fda_letters
+  data_processing_strategy: fda_full_document_processor
+  database: fda_letters_full
+  files:
+  - 81abd139a97521c1e673d2b0c2bc9f701dd72d67edc3108f0d91e5750af6a3c5
+  - ad1def8bec11d53b8888e35561462045aad771804d10ef7b3bf697c667132bbe
+  - e9314cbe6375abc60d9611d5dc7039c8368ee66261afdd0945f2d7df2a5466ef
+- name: fda_corpus
+  data_processing_strategy: fda_chunked_processor
+  database: fda_corpus_chunked
+  files:
+  - 81abd139a97521c1e673d2b0c2bc9f701dd72d67edc3108f0d91e5750af6a3c5
+  - ad1def8bec11d53b8888e35561462045aad771804d10ef7b3bf697c667132bbe
+  - e9314cbe6375abc60d9611d5dc7039c8368ee66261afdd0945f2d7df2a5466ef
+runtime:
+  default_model: question_extractor
+  models:
+  - name: question_extractor
+    description: Fast model for extracting FDA questions from documents
+    provider: ollama
+    model: qwen3:1.7b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - fda_question_extractor
+  - name: task_validator
+    description: Validates if extracted text is a real FDA task (2nd stage filter)
+    provider: ollama
+    model: qwen3:1.7b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - fda_task_validator
+  - name: answer_finder
+    description: Fast model for finding answers to FDA questions
+    provider: ollama
+    model: qwen3:1.7b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - fda_answer_finder
