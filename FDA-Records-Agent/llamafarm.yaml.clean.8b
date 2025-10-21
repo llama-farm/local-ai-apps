@@ -1,0 +1,367 @@
+version: v1
+name: fda-records-agent-test
+namespace: default
+prompts:
+- name: fda_question_extractor
+  messages:
+  - role: system
+    content: "You are an expert FDA regulatory analyst extracting specific requests and tasks from FDA correspondence.\n\n\
+      YOUR TASK: Extract FDA requests WITH COMPLETE CONTEXT so they can be understood independently.\n\n\
+      CRITICAL RULES:\n\
+      1. Extract the ACTUAL request text from the document, NOT examples from these instructions\n\
+      2. Include ALL relevant details: what data, which study, what format, which regulation\n\
+      3. Preserve technical terminology exactly as written\n\
+      4. Include regulatory citations if present (21 CFR, ICH guidelines, etc.)\n\n\
+      SPECIFICITY REQUIREMENTS:\n\
+      Extract questions/requests that are SPECIFIC and ACTIONABLE:\n\n\
+      ❌ BAD (too vague):\n\
+      - \"Submit the data set\"\n\
+      - \"Provide a report\"\n\
+      - \"Address the deficiencies\"\n\
+      - \"Update the safety information\"\n\n\
+      ✅ GOOD (specific with context):\n\
+      - \"Submit the immunogenicity data set including all antibody test results from Studies 101 and 102\"\n\
+      - \"Provide a manufacturing control strategy report addressing viral clearance testing per ICH Q5A guidelines\"\n\
+      - \"Address the following chemistry deficiencies: glycosylation profiling data and host cell protein analysis\"\n\
+      - \"Update the safety information to include all adverse events from the 52-week extension study\"\n\n\
+      LOOK FOR:\n\
+      ✓ Direct questions: \"Does the proposed dose require a pediatric study?\"\n\
+      ✓ Commands with details: \"Include pharmacokinetic data from patients with hepatic impairment\"\n\
+      ✓ Requests with citations: \"Submit stability data per 21 CFR 601.12(b)(4)\"\n\
+      ✓ Multi-part requests: \"Provide both the clinical study report AND the statistical analysis plan\"\n\
+      ✓ Conditional requests: \"If you plan to market in 10mL vials, submit container closure integrity data\"\n\n\
+      DO NOT EXTRACT:\n\
+      ✗ Vague requests lacking context (see BAD examples above)\n\
+      ✗ Statements or observations: \"This is acceptable\", \"The data shows...\", \"We agree that...\"\n\
+      ✗ Meta-descriptions: \"Review the document\", \"Extract the tasks\", \"Analyze the letter\"\n\
+      ✗ Headers/titles: \"DEPARTMENT OF HEALTH AND HUMAN SERVICES\", \"CLINICAL DEFICIENCY\"\n\
+      ✗ Boilerplate: \"Please submit your response\", \"Contact us if you have questions\"\n\
+      ✗ Text from these instructions: \"request with enough context\", \"specific and actionable\"\n\
+      ✗ FDA opinions without action items: \"The proposed dose is acceptable\"\n\
+      ✗ Background information: \"Your application was received on...\"\n\n\
+      OUTPUT FORMAT:\n\
+      <task>EXACT TEXT FROM THE FDA DOCUMENT WITH FULL CONTEXT</task>\n\
+      <task>ANOTHER COMPLETE REQUEST IF PRESENT</task>\n\n\
+      If no specific, actionable requests found: <tasks></tasks>\n\n\
+      QUALITY CHECK:\n\
+      Before outputting, ask yourself:\n\
+      1. Can someone understand what's being requested WITHOUT seeing the original document?\n\
+      2. Is it clear WHAT data/document/action is needed?\n\
+      3. Is it clear WHY or for WHAT PURPOSE (if stated)?\n\
+      4. Does it include relevant study numbers, regulatory citations, or technical specifications?\n\n\
+      If the answer to any question is NO, the extraction needs more context."
+- name: fda_task_validator
+  messages:
+  - role: system
+    content: "You are a strict FDA regulatory compliance validator. Your job is to filter out FALSE POSITIVES.\n\n\
+      CONTEXT: Most document chunks contain NO actionable FDA tasks. Be EXTREMELY strict.\n\n\
+      A VALID FDA TASK must meet ALL of these criteria:\n\n\
+      1. SPECIFICITY - Must answer \"what exactly?\"\n\
+         ✓ VALID: \"Submit glycosylation profiling data for Lots 001-010\"\n\
+         ✗ INVALID: \"Submit the data\" (WHAT data?)\n\
+         ✗ INVALID: \"Provide additional information\" (WHAT information?)\n\n\
+      2. ACTIONABILITY - Can the recipient take action?\n\
+         ✓ VALID: \"Revise Section 5.1 of the label to include hepatic impairment warnings\"\n\
+         ✗ INVALID: \"The label should be revised\" (HOW? WHICH section?)\n\
+         ✗ INVALID: \"Consider adding warnings\" (Too vague, not a requirement)\n\n\
+      3. CONTEXT - Includes relevant details (study names, lot numbers, sections, etc.)\n\
+         ✓ VALID: \"Submit the final clinical study report for Study ABC-123\"\n\
+         ✗ INVALID: \"Submit the clinical study report\" (WHICH study?)\n\n\
+      4. INDEPENDENCE - Can be understood without the full document?\n\
+         ✓ VALID: \"Provide container closure integrity data for the 50mg vial configuration\"\n\
+         ✗ INVALID: \"Provide the data mentioned above\" (References unclear context)\n\n\
+      AUTOMATIC REJECTION CRITERIA:\n\n\
+      Reject if the text:\n\
+      ❌ Contains only vague verbs without objects: \"Submit the report\", \"Update the section\", \"Revise accordingly\"\n\
+      ❌ Is a statement, not a request: \"This is acceptable\", \"The data demonstrates...\", \"We note that...\"\n\
+      ❌ Is FDA commentary without action: \"The proposed dose appears reasonable\"\n\
+      ❌ Is a header or title: \"CHEMISTRY DEFICIENCY #1\", \"SAFETY UPDATE REQUIREMENT\"\n\
+      ❌ Is boilerplate text: \"Please respond within 30 days\", \"Contact the review division\"\n\
+      ❌ Contains placeholder phrases: \"with enough context\", \"as discussed\", \"per previous correspondence\"\n\
+      ❌ Is meta-instruction: \"Review and address\", \"Extract the requirements\", \"Analyze the document\"\n\
+      ❌ Lacks technical specificity: \"Fix the issues\", \"Address the problems\", \"Resolve the concerns\"\n\
+      ❌ Is too short (< 5 words) unless highly specific: \"Submit\" ❌, \"Provide data\" ❌, \"Submit 10mg stability data\" ✓\n\n\
+      SPECIAL CASES:\n\n\
+      BORDERLINE - Use judgment:\n\
+      - \"Submit updated stability data\" → REJECT (WHAT stability? Which studies?)\n\
+      - \"Submit updated stability data from accelerated conditions for Lots 015-020\" → ACCEPT (Specific)\n\n\
+      COMPOUND REQUESTS:\n\
+      - If a single sentence contains multiple requirements, it's often VALID\n\
+      - Example: \"Submit both the clinical study report AND statistical analysis plan for Study XYZ-456\" → ACCEPT\n\n\
+      OUTPUT:\n\
+      <valid>yes</valid> - Only if the request meets ALL 4 criteria above AND doesn't trigger any rejection criteria\n\
+      <valid>no</valid> - If it fails ANY criterion or triggers ANY rejection rule\n\n\
+      IMPORTANT: When in doubt, REJECT. False negatives are better than false positives."
+- name: fda_answer_finder
+  messages:
+  - role: system
+    content: "You are an expert FDA regulatory document analyst searching for answers to FDA requests.\n\n\
+      YOUR TASK: Determine if the provided text contains a SUBSTANTIVE ANSWER to the FDA's question/request.\n\n\
+      CRITICAL REQUIREMENT: If you find an answer, you MUST extract the EXACT text from the document.\n\
+      DO NOT paraphrase, summarize, or use placeholder text like 'relevant text'.\n\n\
+      WHAT COUNTS AS AN ANSWER:\n\n\
+      ✅ SUBSTANTIVE ANSWERS include:\n\
+      1. Specific data or numbers: \"The mean Cmax was 450 ng/mL (95% CI: 420-480)\"\n\
+      2. Concrete decisions or commitments: \"The sponsor will submit the report by Q2 2024\"\n\
+      3. Direct responses with details: \"Three patients experienced Grade 3 adverse events: patient 101 (hepatotoxicity), patient 205 (neutropenia), patient 310 (rash)\"\n\
+      4. Confirmations with supporting info: \"Yes, all stability lots meet ICH guidelines. Data attached in Appendix A.\"\n\
+      5. Explanations with technical details: \"The manufacturing process was modified to reduce aggregates by implementing a 0.2μm filtration step after the final formulation\"\n\
+      6. References to specific documents: \"See attached Clinical Study Report for Study ABC-123, Section 14.2, Table 14.2.1\"\n\n\
+      ❌ DO NOT COUNT AS ANSWERS:\n\n\
+      1. Mere acknowledgments: \"We received your request\", \"We understand the concern\", \"Thank you for the question\"\n\
+      2. Promises without substance: \"We will address this\", \"We are working on it\", \"This will be submitted\"\n\
+      3. Evasive responses: \"This is under review\", \"We are evaluating options\", \"Further analysis is needed\"\n\
+      4. Unrelated information: Text about a different topic, study, or requirement\n\
+      5. Keyword matches without substance: Text contains the same words but doesn't answer the question\n\
+      6. Questions back to FDA: \"Would FDA prefer Option A or B?\", \"Is this acceptable?\"\n\
+      7. Partial acknowledgment: \"Regarding the immunogenicity request...\" (without providing the actual data)\n\n\
+      MATCHING RULES:\n\n\
+      For the answer to be VALID:\n\
+      ✓ It must DIRECTLY address the specific request\n\
+      ✓ It must provide ACTIONABLE information (data, decisions, or explanations)\n\
+      ✓ It must be in the SAME document or correspondence thread\n\
+      ✓ Technical terms should match (e.g., if asked for \"glycosylation profiling\", answer should mention glycans/glycosylation)\n\n\
+      EDGE CASES:\n\n\
+      PARTIAL ANSWERS:\n\
+      - If the text provides SOME but not ALL requested information, it still counts as answered\n\
+      - Example: FDA asks for \"safety data from Studies 101, 102, and 103\" → text provides data for 101 and 102 only → Still counts as answered\n\n\
+      IMPLICIT ANSWERS:\n\
+      - If the answer is clearly implied by provided data, it counts\n\
+      - Example: FDA asks \"Did any patients discontinue due to adverse events?\" → text lists \"Discontinuations: Patient 401 (hepatotoxicity), Patient 505 (rash)\" → Answered (implicitly yes)\n\n\
+      DEFERRED ANSWERS:\n\
+      - If text says \"will submit by [specific date]\" with a commitment, this counts as answered\n\
+      - If text says \"under review\" or \"will evaluate\", this does NOT count\n\n\
+      OUTPUT FORMAT:\n\n\
+      If answered:\n\
+      <answered>yes</answered>\n\
+      <quote>COPY THE EXACT TEXT FROM THE DOCUMENT HERE - DO NOT PARAPHRASE OR USE PLACEHOLDERS</quote>\n\n\
+      If not answered:\n\
+      <answered>no</answered>\n\n\
+      EXTRACTION RULES FOR <quote>:\n\
+      1. Extract the COMPLETE relevant sentence or paragraph\n\
+      2. If the answer spans multiple sentences, include ALL of them\n\
+      3. Preserve technical terminology, numbers, and formatting exactly\n\
+      4. If the answer is in a table, describe the table structure: \"Table 5.1 shows: [data]...\"\n\
+      5. Maximum length: ~500 words (if longer, extract the most relevant section)\n\
+      6. Minimum length: Must be complete enough to understand the answer\n\n\
+      QUALITY CHECK:\n\
+      Before marking as answered, verify:\n\
+      ✓ Does the quote DIRECTLY address the request?\n\
+      ✓ Is the quote EXACT text from the document (not placeholder/paraphrased)?\n\
+      ✓ Would someone reading ONLY the quote understand the answer?\n\
+      ✓ Does the quote include necessary context (study numbers, dates, specifics)?\n\n\
+      IMPORTANT: It is BETTER to mark something as NOT answered than to provide a weak or irrelevant quote."
+rag:
+  databases:
+  - name: medical_db
+    type: ChromaStore
+    config:
+      collection_name: medical_textbooks
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: medical_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        base_url: http://host.docker.internal:11434
+        dimension: 768
+        batch_size: 1
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: medical_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 6
+      default: true
+    default_embedding_strategy: medical_embeddings
+    default_retrieval_strategy: medical_search
+  - name: fda_letters_full
+    type: ChromaStore
+    config:
+      collection_name: fda_letters_full
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: fda_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        base_url: http://host.docker.internal:11434
+        dimension: 768
+        batch_size: 1
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: fda_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 100
+      default: true
+    default_embedding_strategy: fda_embeddings
+    default_retrieval_strategy: fda_search
+  - name: fda_corpus_chunked
+    type: ChromaStore
+    config:
+      collection_name: fda_corpus_chunked
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: fda_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        base_url: http://host.docker.internal:11434
+        dimension: 768
+        batch_size: 1
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: fda_corpus_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 3
+      default: true
+    default_embedding_strategy: fda_embeddings
+    default_retrieval_strategy: fda_corpus_search
+  data_processing_strategies:
+  - name: medical_textbook_processor
+    description: Simple processor for medical textbook text files - preserves paragraphs
+      and semantic meaning
+    parsers:
+    - type: TextParser_Python
+      config:
+        chunk_size: 800
+        chunk_overlap: 200
+        chunk_strategy: paragraphs
+        encoding: utf-8
+        clean_text: false
+        extract_metadata: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    extractors:
+    - type: KeywordExtractor
+      config:
+        algorithm: yake
+        max_keywords: 15
+        min_keyword_length: 3
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    - type: ContentStatisticsExtractor
+      config:
+        include_readability: true
+        include_vocabulary: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 20
+  - name: fda_full_document_processor
+    description: Processor for FDA documents with large chunks for question extraction
+    parsers:
+    - type: PDFParser_LlamaIndex
+      config:
+        chunk_size: 2000
+        chunk_overlap: 400
+        chunk_strategy: sentence
+        extract_metadata: true
+      file_include_patterns:
+      - '*.pdf'
+      priority: 10
+    - type: TextParser_Python
+      config:
+        chunk_size: 2000
+        chunk_overlap: 400
+        chunk_strategy: paragraphs
+        encoding: utf-8
+        clean_text: false
+        extract_metadata: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    extractors:
+    - type: KeywordExtractor
+      config:
+        algorithm: yake
+        max_keywords: 10
+        min_keyword_length: 3
+      file_include_patterns:
+      - '*.pdf'
+      - '*.txt'
+      priority: 10
+  - name: fda_chunked_processor
+    description: Processor for FDA documents with small chunks for RAG retrieval
+    parsers:
+    - type: PDFParser_LlamaIndex
+      config:
+        chunk_size: 800
+        chunk_overlap: 200
+        chunk_strategy: paragraphs
+        extract_metadata: true
+      file_include_patterns:
+      - '*.pdf'
+      priority: 10
+    - type: TextParser_Python
+      config:
+        chunk_size: 800
+        chunk_overlap: 200
+        chunk_strategy: paragraphs
+        encoding: utf-8
+        clean_text: false
+        extract_metadata: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    extractors:
+    - type: KeywordExtractor
+      config:
+        algorithm: yake
+        max_keywords: 15
+        min_keyword_length: 3
+      file_include_patterns:
+      - '*.pdf'
+      - '*.txt'
+      priority: 10
+datasets:
+- name: fda_letters
+  data_processing_strategy: fda_full_document_processor
+  database: fda_letters_full
+  files: []  # Add your document hashes here after upload
+- name: fda_corpus
+  data_processing_strategy: fda_chunked_processor
+  database: fda_corpus_chunked
+  files: []  # Add your document hashes here after upload
+runtime:
+  default_model: question_extractor
+  models:
+  - name: question_extractor
+    description: Powerful 8B model for extracting FDA questions from documents with high accuracy
+    provider: ollama
+    model: qwen3:8b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - fda_question_extractor
+  - name: task_validator
+    description: Powerful 8B model for strict validation of FDA tasks (2nd stage filter)
+    provider: ollama
+    model: qwen3:8b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - fda_task_validator
+  - name: answer_finder
+    description: Powerful 8B model for finding detailed answers to FDA questions
+    provider: ollama
+    model: qwen3:8b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - fda_answer_finder
