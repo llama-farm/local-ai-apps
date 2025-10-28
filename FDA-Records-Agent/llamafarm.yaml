@@ -5,62 +5,129 @@ prompts:
 - name: fda_question_extractor
   messages:
   - role: system
-    content: "Find FDA requests and extract them WITH ENOUGH CONTEXT to be self-contained.\n\n\
-      CRITICAL: Extract the ACTUAL request from the document, NOT examples or instructions.\n\n\
-      Include surrounding details so the request is SPECIFIC:\n\
-      - BAD: \"Submit the data set\" (WHICH data set?)\n\
-      - GOOD: \"Submit the immunogenicity data set including all antibody test results\"\n\n\
-      - BAD: \"Please provide a report\"\n\
-      - GOOD: \"Please provide a manufacturing control strategy report addressing viral testing\"\n\n\
-      Look for:\n\
-      - Questions with specifics (\"Does X require Y?\")\n\
-      - Commands with details (\"Include glycosylation profiling data...\")\n\
-      - Requests with context (\"Provide safety data from Study 101...\")\n\n\
-      DO NOT extract:\n\
-      - Vague requests without context\n\
-      - Statements (\"This is...\", \"The document...\")\n\
-      - Meta-descriptions (\"Review...\", \"Extract...\")\n\
-      - Headers, titles, boilerplate\n\
-      - Text from these instructions (like \"request with enough context\")\n\n\
-      Output format: <task>COPY THE EXACT FDA REQUEST FROM THE DOCUMENT</task>\n\
-      If no specific requests: <tasks></tasks>\n\n\
-      IMPORTANT: Extract ACTUAL requests from the FDA document, NOT placeholder text or examples."
+    content: 'Find FDA requests and extract them WITH ENOUGH CONTEXT to be self-contained.
+
+
+      CRITICAL: Extract the ACTUAL request from the document, NOT examples or instructions.
+
+
+      Include surrounding details so the request is SPECIFIC:
+
+      - BAD: "Submit the data set" (WHICH data set?)
+
+      - GOOD: "Submit the immunogenicity data set including all antibody test results"
+
+
+      - BAD: "Please provide a report"
+
+      - GOOD: "Please provide a manufacturing control strategy report addressing viral
+      testing"
+
+
+      Look for:
+
+      - Questions with specifics ("Does X require Y?")
+
+      - Commands with details ("Include glycosylation profiling data...")
+
+      - Requests with context ("Provide safety data from Study 101...")
+
+
+      DO NOT extract:
+
+      - Vague requests without context
+
+      - Statements ("This is...", "The document...")
+
+      - Meta-descriptions ("Review...", "Extract...")
+
+      - Headers, titles, boilerplate
+
+      - Text from these instructions (like "request with enough context")
+
+
+      Output format: <task>COPY THE EXACT FDA REQUEST FROM THE DOCUMENT</task>
+
+      If no specific requests: <tasks></tasks>
+
+
+      IMPORTANT: Extract ACTUAL requests from the FDA document, NOT placeholder text
+      or examples.'
 - name: fda_task_validator
   messages:
   - role: system
-    content: "You are validating if a text is a REAL, SPECIFIC FDA task.\n\n\
-      IMPORTANT: Most document chunks contain NO tasks. Be VERY strict.\n\n\
-      A REAL FDA task must:\n\
-      - Be SPECIFIC (not vague like \"Submit the data set\" or \"Please provide a request\")\n\
-      - Include enough context to understand WHAT is being requested\n\
-      - Be actionable on its own\n\n\
-      REJECT if:\n\
-      - Too vague (\"Submit the report\" - WHICH report?)\n\
-      - Generic meta-questions (\"Please provide a question about the FDA\")\n\
-      - Lacks specificity (\"Please provide a request for information\")\n\
-      - Statements or descriptions (\"This is...\", \"The document...\")\n\
-      - Headers or boilerplate text\n\
-      - FDA opinions without requests\n\n\
-      Answer with ONLY:\n\
-      <valid>yes</valid> if it's a SPECIFIC, real FDA task\n\
-      <valid>no</valid> if it's vague or not a real task"
+    content: 'You are validating if a text is a REAL, SPECIFIC FDA task.
+
+
+      IMPORTANT: Most document chunks contain NO tasks. Be VERY strict.
+
+
+      A REAL FDA task must:
+
+      - Be SPECIFIC (not vague like "Submit the data set" or "Please provide a request")
+
+      - Include enough context to understand WHAT is being requested
+
+      - Be actionable on its own
+
+
+      REJECT if:
+
+      - Too vague ("Submit the report" - WHICH report?)
+
+      - Generic meta-questions ("Please provide a question about the FDA")
+
+      - Lacks specificity ("Please provide a request for information")
+
+      - Statements or descriptions ("This is...", "The document...")
+
+      - Headers or boilerplate text
+
+      - FDA opinions without requests
+
+
+      Answer with ONLY:
+
+      <valid>yes</valid> if it''s a SPECIFIC, real FDA task
+
+      <valid>no</valid> if it''s vague or not a real task'
 - name: fda_answer_finder
   messages:
   - role: system
-    content: "Does the text contain an answer to the FDA's request?\n\n\
-      CRITICAL: If you find an answer, you MUST extract the EXACT text from the document.\n\n\
-      Look for:\n\
-      - Specific data or numbers\n\
-      - Decisions or commitments\n\
-      - Direct responses with details\n\n\
-      DO NOT match if:\n\
-      - Text only acknowledges the request (\"We received your question\")\n\
-      - Text is unrelated (different topic)\n\
-      - Keywords match but content doesn't actually answer\n\n\
-      Output format:\n\
-      If answered: <answered>yes</answered><quote>COPY THE EXACT TEXT FROM THE DOCUMENT HERE</quote>\n\
-      If not answered: <answered>no</answered>\n\n\
-      IMPORTANT: The <quote> tag must contain the ACTUAL text from the document, NOT placeholder text like 'relevant text'."
+    content: 'Does the text contain an answer to the FDA''s request?
+
+
+      CRITICAL: If you find an answer, you MUST extract the EXACT text from the document.
+
+
+      Look for:
+
+      - Specific data or numbers
+
+      - Decisions or commitments
+
+      - Direct responses with details
+
+
+      DO NOT match if:
+
+      - Text only acknowledges the request ("We received your question")
+
+      - Text is unrelated (different topic)
+
+      - Keywords match but content doesn''t actually answer
+
+
+      Output format:
+
+      If answered: <answered>yes</answered><quote>COPY THE EXACT TEXT FROM THE DOCUMENT
+      HERE</quote>
+
+      If not answered: <answered>no</answered>
+
+
+      IMPORTANT: The <quote> tag must contain the ACTUAL text from the document, NOT
+      placeholder text like ''relevant text''.'
 rag:
   databases:
   - name: medical_db
@@ -244,16 +311,11 @@ datasets:
   data_processing_strategy: fda_full_document_processor
   database: fda_letters_full
   files:
-  - 81abd139a97521c1e673d2b0c2bc9f701dd72d67edc3108f0d91e5750af6a3c5
-  - ad1def8bec11d53b8888e35561462045aad771804d10ef7b3bf697c667132bbe
-  - e9314cbe6375abc60d9611d5dc7039c8368ee66261afdd0945f2d7df2a5466ef
+  - 150290b3fbafec544a668b72dd11293d21ba97d436f51b61842d26b0147f94b9
 - name: fda_corpus
   data_processing_strategy: fda_chunked_processor
   database: fda_corpus_chunked
-  files:
-  - 81abd139a97521c1e673d2b0c2bc9f701dd72d67edc3108f0d91e5750af6a3c5
-  - ad1def8bec11d53b8888e35561462045aad771804d10ef7b3bf697c667132bbe
-  - e9314cbe6375abc60d9611d5dc7039c8368ee66261afdd0945f2d7df2a5466ef
+  files: []
 runtime:
   default_model: question_extractor
   models:
