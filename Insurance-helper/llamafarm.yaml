@@ -1,0 +1,489 @@
+version: v1
+name: insurance-helper-project
+namespace: default
+prompts:
+- name: insurance_general_assistant
+  messages:
+  - role: system
+    content: 'You are an expert Insurance Assistant with deep knowledge of health
+      insurance, medical billing,
+
+      claims processing, and policy coverage. You help users understand their insurance
+      policies,
+
+      medical bills, explanation of benefits (EOBs), and claim denials.
+
+
+      When answering questions:
+
+      - Explain insurance concepts in clear, simple language avoiding jargon
+
+      - Break down complex insurance terminology (deductible, coinsurance, out-of-pocket
+      max, etc.)
+
+      - Cite specific policy sections or EOB line items when referencing user documents
+
+      - Provide actionable next steps when appropriate (e.g., "call your insurer",
+      "file an appeal")
+
+      - Always emphasize that you provide general guidance, not legal/medical advice
+
+      - Be empathetic - insurance issues can be stressful and confusing
+
+
+      Key areas of expertise:
+
+      - Policy coverage and benefits
+
+      - Medical billing and EOBs
+
+      - Claims and denials
+
+      - Prior authorizations and appeals
+
+      - In-network vs out-of-network
+
+      - HSA/FSA accounts
+
+      - Coordination of benefits
+
+      '
+- name: insurance_claims_analyst
+  messages:
+  - role: system
+    content: 'You are a specialized Claims Analyst helping users understand claim
+      denials, appeals,
+
+      and the claims adjudication process.
+
+
+      When analyzing claims:
+
+      - Identify the specific denial reason codes (e.g., CO-50, CO-97, PR-1)
+
+      - Explain what each code means in plain English
+
+      - Determine if the denial is likely valid or potentially appealable
+
+      - Outline the appeal process step-by-step
+
+      - Identify missing documentation or information needed
+
+      - Explain timelines and deadlines for appeals
+
+      - Suggest specific arguments or evidence for appeals
+
+
+      Always include:
+
+      - The denial reason in plain language
+
+      - Whether this is a hard denial or soft denial
+
+      - Specific next steps with timelines
+
+      - What documentation to gather
+
+      - Sample appeal letter language (if appropriate)
+
+      '
+- name: insurance_coverage_advisor
+  messages:
+  - role: system
+    content: 'You are a Policy Coverage Expert helping users understand what their
+      insurance
+
+      policy covers, limitations, exclusions, and how to maximize their benefits.
+
+
+      When analyzing coverage:
+
+      - Quote specific policy language when available
+
+      - Explain coverage percentages (e.g., "80/20" coinsurance)
+
+      - Clarify deductible vs. out-of-pocket maximum
+
+      - Identify in-network vs. out-of-network differences
+
+      - Explain prior authorization requirements
+
+      - Highlight common exclusions and limitations
+
+      - Calculate estimated out-of-pocket costs when possible
+
+
+      Help users understand:
+
+      - What services require prior authorization
+
+      - Preventive care vs. diagnostic procedures
+
+      - Durable medical equipment (DME) coverage
+
+      - Mental health parity
+
+      - Prescription drug tiers and formularies
+
+      - Out-of-network emergency coverage
+
+      '
+- name: insurance_billing_specialist
+  messages:
+  - role: system
+    content: 'You are a Medical Billing Specialist helping users understand medical
+      bills,
+
+      Explanation of Benefits (EOBs), billing errors, and payment responsibilities.
+
+
+      When analyzing bills:
+
+      - Break down each line item and charge
+
+      - Compare medical bill to EOB to identify discrepancies
+
+      - Identify potential billing errors (duplicate charges, unbundling, upcoding)
+
+      - Explain what patient is responsible for vs. what insurance covers
+
+      - Calculate if deductible/out-of-pocket max has been met
+
+      - Identify balance billing situations
+
+      - Suggest payment plans or financial assistance options
+
+
+      Key focus areas:
+
+      - CPT and ICD-10 codes
+
+      - Allowed amount vs. billed amount
+
+      - Provider adjustments and write-offs
+
+      - Timely filing limits
+
+      - Coordination of benefits (primary/secondary insurance)
+
+      - Medical necessity documentation
+
+      - Itemized bill analysis
+
+      '
+rag:
+  databases:
+  - name: insurance_policies_db
+    type: ChromaStore
+    config:
+      collection_name: insurance_policies
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: insurance_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        dimension: 768
+        batch_size: 8
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: insurance_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 8
+      default: true
+    default_embedding_strategy: insurance_embeddings
+    default_retrieval_strategy: insurance_search
+  - name: insurance_knowledge_db
+    type: ChromaStore
+    config:
+      collection_name: insurance_knowledge
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: insurance_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        dimension: 768
+        batch_size: 8
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: knowledge_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 10
+      default: true
+    default_embedding_strategy: insurance_embeddings
+    default_retrieval_strategy: knowledge_search
+  - name: member_handbook_db
+    type: ChromaStore
+    config:
+      collection_name: member_handbook
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: handbook_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        dimension: 768
+        batch_size: 8
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: handbook_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 12
+      default: true
+    default_embedding_strategy: handbook_embeddings
+    default_retrieval_strategy: handbook_search
+  data_processing_strategies:
+  - name: insurance_policy_processor
+    description: 'Processor for insurance policy documents, EOBs, medical bills, and
+      claims.
+
+      Preserves paragraph structure and extracts insurance-specific metadata.
+
+      '
+    parsers:
+    - type: TextParser_Python
+      config:
+        chunk_size: 1000
+        chunk_overlap: 250
+        chunk_strategy: paragraphs
+        encoding: utf-8
+        clean_text: false
+        extract_metadata: true
+      file_include_patterns:
+      - '*.txt'
+      priority: 10
+    - type: PDFParser_LlamaIndex
+      config:
+        chunk_size: 1000
+        chunk_overlap: 250
+        chunk_strategy: paragraphs
+        extract_metadata: true
+      file_include_patterns:
+      - '*.pdf'
+      priority: 10
+    extractors:
+    - type: KeywordExtractor
+      config:
+        algorithm: yake
+        max_keywords: 20
+        min_keyword_length: 3
+      file_include_patterns:
+      - '*.txt'
+      - '*.pdf'
+      priority: 10
+    - type: ContentStatisticsExtractor
+      config:
+        include_readability: true
+        include_vocabulary: true
+      file_include_patterns:
+      - '*.txt'
+      - '*.pdf'
+      priority: 20
+datasets:
+- name: insurance_policies_batch_1
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_policies_db
+  files:
+  - 089375cc31cfae76717c9c612f0374d6a6c5299fc12351a0dd34ae4e2d8c9aac
+  - 4f35ef8383bf5208faad72424f841967564706565b27f864b36ce37dad5abcb0
+  - 3646666b9453316719b2b14570f42aae8eb084c43721d378d443fe2d6c1b5022
+  - 59a880683bb05e1ef23a2ed199bb0fa69db6810141bc1a177a0f858dcaddbd94
+  - 855cb6fda7ab09aa20e4310e3cb165567d35a1833572d40c90e39baf6921c70c
+  - 3e1c0bb403e024adad780b84293085f8ad76ccff31fcc605f171f937dba1b893
+  - 91a18b825c42ad3b8e34ee3d6731c5ab39244ffb9ac4b1a384b7f26169235391
+  - 9accb54c4ef45a8afff7b5f9db9008d3b09271e8f38f00fe94504e4c2448ef50
+  - 662ce664b89863b2feabd78fa87c786fe8783ffbecc60311a8ccf7f1b5510fb5
+  - 6c1b3b4f283b373fe233e4277a0a184f45cce292e61d8768093f2bb8b7205c40
+  - 6507e796031b14b77ace1a82e08f977bb1c1a5857d9b4de0a2f8fab76fd54c4d
+  - b078db30be33bb687dc7cc81dc4d9bec1ee00a6f87f29a9a2ff730c4fec9cc4b
+  - 038ecd7acc512dc9d86ae449f06ad6251cc098b61336ad841de199596e84f48f
+  - 58e0356f6d7cfab76f98bd543d4b1ffbd0a1d12c20f6f8f9870e1a6b86010350
+  - 62cf42c053907d682b48da9707c4b5d2512dff6a52fc69c0be4d82a28e068614
+  - 6286bbc6379137a8d5f83cdd82088f78c00aa6d2a852bd86d5744b83d047f95e
+  - 267d8f746f9ff3ae46f7c660465185b6f4e6ea6a9eed02c155d940d2ffa9430a
+  - cb4e5c924be55961ff03add9b0cdb2f0ee1e8cdff1be9d89b8b16022b6bf9240
+  - 17cd9ac47931dab0c7fc32121501ed6602e4ff6ad94b1d3e2808797607e5a84c
+  - 55dad5d581e3078cba93f648feca7796c9f62eac0c64cf6d9087be7da7039ae5
+  - 829be6e63890662a7666805206a158d526883344f0bca24aeed67d26278a3aee
+  - cb5e899553c5864238e18ca80ecaef6c1bbb985dafe4383c8d18fb20c2ae5fc6
+  - d481757f13d8942ecd0f93f46d21de944b1219d48e586435e7ec7fa16fc9ccde
+  - 8f998772adcfc397834b54ef2cc5b8bd1f2b392f669b21abfe5764145c812c32
+  - c5a748f15fbba62c63cd852ee6c79e8fece920b1b32aca5232b4c34b7d96bdb2
+  - 18acec5740aba3d89d69cf5e5624d5293699c3292f71de6880fe103fbffd24c6
+  - beb5083653d59d573f28307391a797c167594645a26e5a794a11b12b78405b4e
+  - 92acd180ef7d2d791c488e84d5226e0040dbed89d20e12ad95b82e8457895ac6
+  - df099a8e0fddcd2954f8c8cf7f197f5df821606029194f2cf07cd651b62cd84a
+  - d5f13e4556ad144ebaa15d0adb8a0c871eb8f2483f55ec3bf786140b637a5c1a
+- name: insurance_policies_batch_2
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_policies_db
+  files:
+  - bb7680e37f9d05ac0c7680a2f0c207d39d68d2a01704bfd1a4978786fca8075c
+  - 1f84a6e5e832935605428215d1b1a7b330e07676db0f308b02014f0e73c0ade4
+  - 4101578d45b03802f04e45a3d3d2be7760178ddfc4b02cc2c35322005e607c15
+  - 0388c9d622d7648e92a55f21a0a87a0c62b5ee5cdf9e59f9eaae033bf2e46755
+  - 9ebfc61f27ad93083ec101b3b537ba1d68a32cb125f175e6296f4522a6459222
+  - 8ab60a750422c099d9d8a25220fccc35dc222a01cfeebbaf875a07599db94c08
+  - f9e77a24f2bef61f5143c92da19f784a5e297b18a21014c7cb3e2f4510089da3
+  - 6e1d8b5128e906c67d244f6c0d626d0fdb340999bbbd8a365eb85294f7bea348
+  - e523be5f5fc5c42a54acab202e46b551be811c13dabbf24ecc079fe95a6165bd
+  - bcc4e4a6f5ff52352e83927740d325b071a23313b05b4f2f5fb26ee35683258f
+  - c7d0378ca264d570e29232f443befcf6131db6c5939171bd454e8abd52d65885
+  - f3b87a6cbdd1efe2ce25c195d7b3e1fb5b930187960ab0f3f772de259b1bb050
+  - c964663cdba763a3264bbf1232e885e9c5b97f31eb6c4975f7d0095a9a301b8b
+  - 7a56dfbcc6eb96c1e257a3b8c8f52ea4ff0ab911c74bd19bbdca8928bc12780f
+  - a1a1b0428a6ad25fa336c4f862ba8d03b4b62b32235143c26e62c33bf1d9ba66
+  - c4500d11a30b23797c5df392c4582c2d28547172edf37b6c66f0b4e9f9455e88
+  - 50b93453005c0195fb2ca25403312110f6a26e0e5e3bd0538d545b758a7a8cf3
+  - e98a58c73d3e4d485703b0887bcd15cfd798126bd049c5e8b058f60520e84f53
+  - 3989d38535114badc9a34d253b15901d0888023be8b6a7c73952d69ca0abd72b
+  - 765b74b8d1e8b18048b0073b8e6b9c07d527ac768e44ff1c0461bf175d961de7
+  - 245d8647842515b7c98f60655f083f356314bf46106d7edf6c31ab35fd7be796
+  - 4782352725c26c2efcdb80473656aee1fa0ae005d251ccf33a40e96030d7332e
+  - 66ac08b2aecd34c6df5694f7479f7ca40599679742c760918ba9f61f701e36fe
+  - 14a3594dbd73287dba95c9d328775eb0a0b1c277c2c3bf2e1884d610cb87042b
+  - 4210f7f485e72ff08fd95acf94da92cb6ebc42b521aee85708758ca419bbd9c1
+  - 1ce4d89bb41a00ab2c04d8e47ac730cf526dff1873e5655ae0736354e67b1821
+  - 4b3952952cf506e3325719e69a1076af814d237ff54f8eab896b374a253548fa
+  - bbb4ac3e3c233e70fff8da2e05012e86d283e98467cc3b3e854d93098244f807
+  - ff01cf8ca95b99ab0c2b3136505f59dbf2f143e02e9fee181a4b9f6c0e7a7ebb
+  - 87f43b5911113873449223aa8094596dd721772883e3e798bcbbddfe7a5d779c
+- name: insurance_policies_batch_3
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_policies_db
+  files: []
+- name: insurance_policies_batch_4
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_policies_db
+  files: []
+- name: insurance_policies_batch_5
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_policies_db
+  files: []
+- name: insurance_policies_batch_6
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_policies_db
+  files: []
+- name: insurance_policies_batch_7
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_policies_db
+  files: []
+- name: insurance_policies_batch_8
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_policies_db
+  files: []
+- name: insurance_policies_batch_9
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_policies_db
+  files: []
+- name: insurance_policies_batch_10
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_policies_db
+  files: []
+- name: insurance_knowledge
+  data_processing_strategy: insurance_policy_processor
+  database: insurance_knowledge_db
+  files: []
+- name: member_handbook
+  data_processing_strategy: insurance_policy_processor
+  database: member_handbook_db
+  files:
+  - f2ca1bb6c7e907d06dafe4687e579fce76b37e4e93b7605022da52e6ccc26fd2
+  - 70dc9d4719f3271573dc53b1c4575aeeb10ccfcad9fd744b1552896224489f13
+  - 70dc9d4719f3271573dc53b1c4575aeeb10ccfcad9fd744b1552896224489f13
+runtime:
+  default_model: insurance_advisor
+  models:
+  - name: insurance_advisor
+    description: 'Primary capable model for comprehensive insurance analysis and advice
+      synthesis.
+
+      Use this for final responses to users about their insurance questions.
+
+      '
+    provider: ollama
+    model: qwen3:1.7b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - insurance_general_assistant
+  - name: fast
+    description: 'Fast small model for multi-hop query generation and structured outputs.
+
+      Used to analyze documents and generate focused search queries.
+
+      '
+    provider: ollama
+    model: gemma3:1b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - insurance_general_assistant
+  - name: claims_analyzer
+    description: 'Specialized model for analyzing insurance claims, denials, and appeals.
+
+      Use this when the user asks about claim denials or appeal strategies.
+
+      '
+    provider: ollama
+    model: qwen3:1.7b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - insurance_claims_analyst
+  - name: coverage_advisor
+    description: 'Specialized model for analyzing policy coverage, benefits, and limitations.
+
+      Use this when user asks "is X covered?" or needs policy interpretation.
+
+      '
+    provider: ollama
+    model: qwen3:1.7b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - insurance_coverage_advisor
+  - name: billing_specialist
+    description: 'Specialized model for medical bills, EOBs, and billing error analysis.
+
+      Use this when user uploads medical bills or EOBs.
+
+      '
+    provider: ollama
+    model: qwen3:1.7b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - insurance_billing_specialist
+  - name: reasoning
+    description: 'More powerful model for complex insurance scenarios requiring deep
+      reasoning.
+
+      Use for multi-step appeals, complex coverage determinations, or intricate billing
+      issues.
+
+      Note: Requires more compute resources.
+
+      '
+    provider: ollama
+    model: qwen3:4b
+    prompt_format: unstructured
+    provider_config: {}
+    prompts:
+    - insurance_general_assistant
