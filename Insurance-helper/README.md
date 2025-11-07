@@ -322,3 +322,412 @@ The Insurance Helper includes a **dedicated handbook uploader** that allows you 
 **Storage**: Summary stored in localStorage for quick access  
 **Search**: Top-12 results (higher than general search for detailed coverage info)
 
+Script to get PDFs from insurance websites:
+For example: Signa: https://static.cigna.com/assets/chcp/resourceLibrary/coveragePolicies/medical_a-z.html
+
+United healthcare: https://www.uhcprovider.com/en/policies-protocols/commercial-policies/commercial-medical-drug-policies.html
+
+
+Cut and paste into the Browser's Console
+```javascript
+/**
+ * UHC Clinical Guidelines Document Downloader
+ * 
+ * Instructions:
+ * 1. Navigate to https://www.uhcprovider.com/en/policies-protocols/clinical-guidelines.html
+ * 2. Open Developer Console (F12 or Right-click > Inspect > Console)
+ * 3. Copy and paste this entire script into the console
+ * 4. Press Enter to run
+ * 
+ * The script will:
+ * - Analyze the page structure
+ * - Find all downloadable documents
+ * - Create a download folder in your Downloads directory
+ * - Download all documents with a delay between each to avoid overwhelming the server
+ */
+
+(function() {
+    'use strict';
+    
+    console.log('🔍 UHC Document Downloader Starting...');
+    
+    // Configuration
+    const config = {
+        downloadDelay: 2000, // Delay between downloads in milliseconds
+        maxConcurrent: 2,    // Max concurrent downloads
+        timeout: 30000,      // Timeout for each download
+        debug: true          // Enable debug logging
+    };
+    
+    // Utility functions
+    const utils = {
+        log: (message, type = 'info') => {
+            const styles = {
+                info: 'color: #2196F3',
+                success: 'color: #4CAF50',
+                warning: 'color: #FF9800',
+                error: 'color: #F44336'
+            };
+            console.log(`%c${message}`, styles[type]);
+        },
+        sleep: (ms) => new Promise(resolve => setTimeout(resolve, ms)),
+        
+        sanitizeFilename: (filename) => {
+            return filename.replace(/[^a-z0-9.-]/gi, '_').replace(/_{2,}/g, '_');
+        },
+        
+        extractFilename: (url, defaultName = 'document') => {
+            try {
+                const urlObj = new URL(url);
+                const pathname = urlObj.pathname;
+                const filename = pathname.split('/').pop();
+                return filename || `${defaultName}.pdf`;
+            } catch (e) {
+                return `${defaultName}.pdf`;
+            }
+        }
+    };
+    
+    // Document finder
+    const documentFinder = {
+        findAllDocuments: function() {
+            const documents = new Map(); // Use Map to avoid duplicates        
+        
+            // Method 1: Find all PDF links directly (most reliable)
+            const pdfLinks = Array.from(document.querySelectorAll('a[href*=".pdf" i]'));
+            utils.log(`Found ${pdfLinks.length} PDF links`, 'info');
+            
+            pdfLinks.forEach(link => {
+                if (link.href && !link.href.startsWith('javascript:')) {
+                    documents.set(link.href, {
+                        url: link.href,
+                        text: link.textContent.trim() || 'PDF Document',
+                        type: 'pdf-link'
+                    });
+                }
+            });
+            
+            // Method 2: Find other document types
+            const docExtensions = ['.doc', '.docx', '.xls', '.xlsx', '.ppt', '.pptx', '.zip', '.csv'];
+            docExtensions.forEach(ext => {
+                const links = Array.from(document.querySelectorAll(`a[href*="${ext}" i]`));
+                links.forEach(link => {
+                    if (link.href && !link.href.startsWith('javascript:')) {
+                        documents.set(link.href, {
+                            url: link.href,
+                            text: link.textContent.trim() || `Document (${ext})`,
+                            type: `${ext}-link`
+                        });
+                    }
+                });
+            });
+            // Method 3: Find links with download-related text or attributes
+            const allLinks = Array.from(document.querySelectorAll('a[href]'));
+            allLinks.forEach(link => {
+                const text = link.textContent.toLowerCase();
+                const href = link.href.toLowerCase();
+                const hasDownloadAttr = link.hasAttribute('download');
+                const hasDownloadInText = text.includes('download') || text.includes('guideline') || text.includes('policy');
+                const hasDownloadInHref = href.includes('download') || href.includes('getfile') || href.includes('getdocument');
+                
+                if ((hasDownloadAttr || hasDownloadInText || hasDownloadInHref) && 
+                    !href.startsWith('javascript:') && 
+                    !href.startsWith('#') &&
+                    !documents.has(link.href)) {
+                    documents.set(link.href, {
+                        url: link.href,
+                        text: link.textContent.trim() || 'Document',
+                        type: 'potential-download'
+                    });
+                }
+            });
+
+            // Method 4: Find buttons with data attributes or onclick handlers
+            const buttons = Array.from(document.querySelectorAll('button, input[type="button"], input[type="submit"]'));
+            buttons.forEach(button => {
+                // Check data attributes
+                Object.keys(button.dataset || {}).forEach(key => {
+                    const value = button.dataset[key];
+                    if (value && (value.includes('.pdf') || value.includes('.doc') || value.includes('download'))) {
+                        documents.set(value, {
+                            url: value,
+                            text: button.textContent.trim() || 'Button Download',
+                            type: 'button-data'
+                        });
+                    }
+                });
+                
+                // Log buttons with onclick for manual inspection
+                if (button.onclick || button.getAttribute('onclick')) {
+                    utils.log(`Button with onclick: "${button.textContent.trim()}"`, 'warning');
+                }
+            });
+            // Method 5: Check for expandable sections and try to expand them
+            const expandables = document.querySelectorAll('[aria-expanded="false"], details:not([open]), .accordion-button.collapsed, .collapsible');
+            if (expandables.length > 0) {
+                utils.log(`Found ${expandables.length} collapsed sections. Attempting to expand...`, 'info');
+                
+                let expanded = 0;
+                expandables.forEach(elem => {
+                    try {
+                        if (elem.tagName === 'DETAILS') {
+                            elem.open = true;
+                            expanded++;
+                        } else if (elem.hasAttribute('aria-expanded')) {
+                            elem.setAttribute('aria-expanded', 'true');
+                            elem.click();
+                            expanded++;
+                        } else if (elem.classList.contains('accordion-button') || elem.classList.contains('collapsible')) {
+                            elem.click();
+                            expanded++;
+                        }
+                    } catch (e) {
+                        // Silent fail for individual elements
+                    }
+                });
+                
+                if (expanded > 0) {
+                    utils.log(`Expanded ${expanded} sections. Waiting for content to load...`, 'info');
+                    // Re-scan after a delay
+                    setTimeout(() => {
+                        const newPdfLinks = Array.from(document.querySelectorAll('a[href*=".pdf" i]'));
+                        newPdfLinks.forEach(link => {
+                            if (link.href && !documents.has(link.href)) {
+                                documents.set(link.href, {
+                                    url: link.href,
+                                    text: link.textContent.trim() || 'PDF Document (from expanded section)',
+                                    type: 'expanded-pdf'
+                                });
+                            }
+                        });
+                        utils.log(`Found ${newPdfLinks.length - documents.size} new PDFs after expansion`, 'info');
+                    }, 2000);
+                }
+            }
+            
+            return documents;
+        }
+    };
+    
+    // Download manager
+    const downloadManager = {
+        downloadQueue: [],
+        downloading: 0,
+        completed: 0,
+        failed: 0,
+        
+        addToQueue: function(documents) {
+            documents.forEach((doc, url) => {
+                this.downloadQueue.push(doc);
+            });
+            utils.log(`Added ${documents.size} documents to download queue`, 'info');
+        },        
+        downloadFile: async function(doc) {
+            try {
+                utils.log(`Downloading: ${doc.text || doc.url}`, 'info');
+                
+                // Create a temporary link and click it
+                const link = document.createElement('a');
+                link.href = doc.url;
+                link.download = utils.extractFilename(doc.url, doc.text);
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                this.completed++;
+                utils.log(`✅ Downloaded: ${doc.text || doc.url}`, 'success');
+                
+            } catch (error) {
+                this.failed++;
+                utils.log(`❌ Failed to download: ${doc.url} - ${error.message}`, 'error');
+            }
+        },
+        
+        processQueue: async function() {
+            utils.log(`Starting download of ${this.downloadQueue.length} documents...`, 'info');
+            
+            for (let i = 0; i < this.downloadQueue.length; i++) {
+                const doc = this.downloadQueue[i];
+                
+                // Wait for available slot
+                while (this.downloading >= config.maxConcurrent) {
+                    await utils.sleep(100);
+                }
+                
+                this.downloading++;
+                
+                // Download with delay
+                this.downloadFile(doc).then(() => {
+                    this.downloading--;
+                });
+                
+                // Progress update
+                if ((i + 1) % 5 === 0 || i === this.downloadQueue.length - 1) {
+                    utils.log(`Progress: ${i + 1}/${this.downloadQueue.length} documents processed`, 'info');
+                }
+                
+                // Delay between downloads
+                if (i < this.downloadQueue.length - 1) {
+                    await utils.sleep(config.downloadDelay);
+                }
+            }
+            
+            // Wait for all downloads to complete
+            while (this.downloading > 0) {
+                await utils.sleep(100);
+            }
+            
+            // Final report
+            utils.log('=' .repeat(50), 'info');
+            utils.log(`Download Complete!`, 'success');
+            utils.log(`✅ Successful: ${this.completed}`, 'success');
+            utils.log(`❌ Failed: ${this.failed}`, 'error');
+            utils.log(`📊 Total: ${this.downloadQueue.length}`, 'info');
+        }
+    };
+            
+    // Alternative download method using fetch
+    const alternativeDownload = {
+        downloadWithFetch: async function(url, filename) {
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/pdf,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,*/*'
+                    }
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const blob = await response.blob();
+                const downloadUrl = window.URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = downloadUrl;
+                link.download = filename;
+                link.click();
+                window.URL.revokeObjectURL(downloadUrl);
+                
+                return true;
+            } catch (error) {
+                utils.log(`Fetch download failed: ${error.message}`, 'error');
+                return false;
+            }
+        }
+    };
+    
+    // Page analyzer
+    const pageAnalyzer = {
+        analyze: function() {
+            console.log('📊 Page Analysis:');
+            console.log('================');            
+            
+            const analysis = {
+                url: window.location.href,
+                title: document.title,
+                totalLinks: document.querySelectorAll('a').length,
+                pdfLinks: document.querySelectorAll('a[href*=".pdf"]').length,
+                iframes: document.querySelectorAll('iframe').length,
+                buttons: document.querySelectorAll('button').length,
+                forms: document.querySelectorAll('form').length,
+                expandableSections: document.querySelectorAll('[aria-expanded], details, .accordion').length
+            };
+            
+            console.table(analysis);
+            
+            // Check for specific UHC elements
+            const uhcElements = {
+                hasLoginForm: !!document.querySelector('form[action*="login"]'),
+                hasDownloadButtons: Array.from(document.querySelectorAll('button, a')).some(el => 
+                    el.textContent.toLowerCase().includes('download')),
+                hasPDFLinks: !!document.querySelector('a[href$=".pdf"]'),
+                requiresAuth: document.body.textContent.includes('log in') || document.body.textContent.includes('sign in')
+            };
+            
+            console.log('UHC Specific Elements:');
+            console.table(uhcElements);
+            
+            if (uhcElements.requiresAuth) {
+                utils.log('⚠️ This page may require authentication to access all documents', 'warning');
+            }
+            
+            return analysis;
+        }
+    };
+
+    // Main execution
+    async function main() {
+        try {
+            // Step 1: Analyze the page
+            utils.log('Step 1: Analyzing page structure...', 'info');
+            const analysis = pageAnalyzer.analyze();
+            
+            // Step 2: Find all documents
+            utils.log('Step 2: Searching for documents...', 'info');
+            const documents = documentFinder.findAllDocuments();
+            
+            if (documents.size === 0) {
+                utils.log('⚠️ No documents found on this page.', 'warning');
+                utils.log('This might be because:', 'warning');
+                utils.log('1. Documents are behind a login wall', 'warning');
+                utils.log('2. Documents are loaded dynamically via JavaScript', 'warning');
+                utils.log('3. Documents are in iframes or popup windows', 'warning');
+                
+                // Try to find and report any authentication requirements
+                const loginElements = document.querySelectorAll('a[href*="login"], button:contains("Sign In"), input[type="password"]');
+                if (loginElements.length > 0) {
+                    utils.log('🔐 Authentication elements detected. Please log in first.', 'warning');
+                }
+                
+                return;
+            }
+            
+            utils.log(`✅ Found ${documents.size} documents`, 'success');
+            
+            // Display found documents
+            console.log('Found Documents:');
+            documents.forEach((doc, url) => {
+                console.log(`- ${doc.text || 'Untitled'}: ${url}`);
+            });
+
+            // Step 3: Ask for confirmation
+            const proceed = confirm(`Found ${documents.size} documents. Do you want to download all of them?\n\nNote: Files will be downloaded to your default Downloads folder.`);
+            
+            if (!proceed) {
+                utils.log('Download cancelled by user', 'warning');
+                return;
+            }
+            
+            // Step 4: Start downloading
+            utils.log('Step 3: Starting downloads...', 'info');
+            downloadManager.addToQueue(documents);
+            await downloadManager.processQueue();
+            
+        } catch (error) {
+            utils.log(`Critical error: ${error.message}`, 'error');
+            console.error(error);
+        }
+    }
+    
+    // Run the script
+    main();
+    
+})();
+
+// Additional helper function to manually trigger download of a specific URL
+window.downloadUHCDocument = function(url, filename) {
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = filename || url.split('/').pop();
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    console.log(`Downloaded: ${link.download}`);
+};
+
+console.log('💡 Tip: You can also use window.downloadUHCDocument(url, filename) to manually download specific documents');
+```

@@ -5,16 +5,22 @@ prompts:
 - name: document_assistant
   messages:
   - role: system
-    content: |
-      You are a knowledgeable AI Assistant with access to comprehensive documents.
+    content: 'You are a knowledgeable AI Assistant with access to comprehensive documents.
+
 
       When answering questions:
+
       - Provide clear, accurate information based on the retrieved context
+
       - Explain concepts in simple, understandable terms
+
       - Always cite your sources when referencing specific information
-      - If you're unsure or the information isn't in the context, say so
+
+      - If you''re unsure or the information isn''t in the context, say so
+
       - Maintain a helpful and professional tone
 
+      '
 rag:
   databases:
   - name: document_db
@@ -28,7 +34,6 @@ rag:
       type: OllamaEmbedder
       config:
         model: nomic-embed-text
-        base_url: http://host.docker.internal:11434
         dimension: 768
         batch_size: 16
         auto_pull: true
@@ -45,8 +50,8 @@ rag:
     default_retrieval_strategy: document_search
   data_processing_strategies:
   - name: document_processor
-    description: Simple processor for document files - preserves paragraphs
-      and semantic meaning
+    description: Simple processor for document files - preserves paragraphs and semantic
+      meaning
     parsers:
     - type: TextParser_Python
       config:
@@ -90,7 +95,8 @@ datasets:
 - name: documents
   data_processing_strategy: document_processor
   database: document_db
-  files: []
+  files:
+  - 4f35ef8383bf5208faad72424f841967564706565b27f864b36ce37dad5abcb0
 runtime:
   default_model: default
   models:
@@ -100,13 +106,15 @@ runtime:
     model: gemma3:1b
     prompt_format: unstructured
     prompts:
-      - document_assistant
-    provider_config: {}
+    - document_assistant
+    think: false
+    tool_call_strategy: native_api
   - name: fast
     description: Fast small model for query generation and structured outputs
     provider: ollama
     model: gemma3:1b
     prompt_format: unstructured
     prompts:
-      - document_assistant
-    provider_config: {}
+    - document_assistant
+    think: false
+    tool_call_strategy: native_api
