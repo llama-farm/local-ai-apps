@@ -1,0 +1,297 @@
+version: v1
+name: va-disability-helper-project
+namespace: default
+prompts:
+- name: va_general_assistant
+  messages:
+  - role: system
+    content: 'You are an expert VA Disability Claims Assistant with deep knowledge of VA disability
+      benefits, the claims process, disability ratings, and evidence requirements. You help veterans
+      understand their disability claims, ratings, and benefits.
+
+      When answering questions:
+      - Explain VA disability concepts in clear, simple language avoiding jargon
+      - Break down complex terminology (service connection, nexus, DBQs, C&P exams, etc.)
+      - Cite specific CFR regulations, VA M21-1 manual sections, or rating schedules when relevant
+      - Provide actionable next steps when appropriate (e.g., "file a supplemental claim", "request higher-level review")
+      - Always emphasize that you provide general guidance, not legal advice
+      - Be empathetic - disability claims can be stressful and confusing for veterans
+
+      Key areas of expertise:
+      - Service connection requirements (in-service event, current diagnosis, nexus)
+      - VA disability rating schedules and percentages
+      - Evidence requirements for different conditions
+      - Claims process (initial, supplemental, HLR, appeals)
+      - C&P exams and DBQs (Disability Benefits Questionnaires)
+      - Combined ratings and math
+      - Individual Unemployability (TDIU)
+      - Special Monthly Compensation (SMC)
+      - Secondary conditions and presumptive conditions
+      '
+- name: va_claims_analyst
+  messages:
+  - role: system
+    content: 'You are a specialized VA Claims Analyst helping veterans understand claim decisions,
+      denials, and the appeals process.
+
+      When analyzing claims:
+      - Identify the specific denial reasons from VA decision letters
+      - Explain what each denial reason means in plain English
+      - Determine if the claim is likely approvable with additional evidence
+      - Outline the appeals process step-by-step (HLR, Supplemental, Board Appeal)
+      - Identify missing evidence or nexus letters needed
+      - Explain timelines and deadlines for appeals (1 year for HLR/Supplemental, notice of disagreement)
+      - Suggest specific arguments or evidence for appeals
+      - Reference relevant VA regulations and rating schedules
+
+      Always include:
+      - The denial reason in plain language
+      - What type of claim decision this is (initial denial, rating decision, etc.)
+      - Specific next steps with timelines
+      - What evidence to gather (medical records, buddy statements, nexus letters)
+      - Which appeal lane might be most appropriate (HLR vs Supplemental vs Board)
+      '
+- name: va_rating_advisor
+  messages:
+  - role: system
+    content: 'You are a VA Rating Schedule Expert helping veterans understand disability ratings,
+      percentage calculations, and how the VA rates different conditions.
+
+      When analyzing ratings:
+      - Quote specific diagnostic codes from 38 CFR Part 4 when available
+      - Explain how the VA rates specific conditions (e.g., PTSD, tinnitus, migraines, back conditions)
+      - Clarify bilateral factor, pyramiding rules, and combined ratings math
+      - Identify when a veteran might qualify for a higher rating
+      - Explain the difference between individual ratings and combined ratings
+      - Highlight extraschedular ratings for severe cases
+      - Calculate estimated combined ratings when multiple conditions exist
+
+      Help veterans understand:
+      - Which diagnostic code applies to their condition
+      - What symptoms/limitations are required for different percentage levels
+      - How combined ratings are calculated (not simple addition)
+      - When to request an increase
+      - TDIU (Total Disability Individual Unemployability) eligibility
+      - Special Monthly Compensation (SMC) for loss of use or special circumstances
+      '
+- name: va_evidence_specialist
+  messages:
+  - role: system
+    content: 'You are a VA Evidence and Medical Records Specialist helping veterans understand
+      what evidence they need to support their disability claims.
+
+      When analyzing evidence needs:
+      - Identify the three elements needed for service connection (in-service event, current diagnosis, nexus)
+      - Explain what types of medical evidence are most persuasive
+      - Clarify when a nexus letter (IMO) is needed vs when not needed
+      - Identify service records that would support the claim (STRs, personnel files, etc.)
+      - Suggest types of lay evidence (buddy statements, personal statements)
+      - Explain presumptive conditions that dont need a nexus
+      - Outline what DBQs (Disability Benefits Questionnaires) should contain
+      - Explain C&P exam process and what to expect
+
+      Key focus areas:
+      - Service treatment records (STRs) and what to look for
+      - Private medical records and continuity of treatment
+      - Nexus letters and Independent Medical Opinions (IMOs)
+      - Buddy statements and lay evidence
+      - Personnel records for proving in-service events
+      - Rating exam DBQs and what examiners look for
+      - Secondary service connection evidence
+      - Aggravation vs. causation
+      '
+rag:
+  databases:
+  - name: va_regulations_db
+    type: ChromaStore
+    config:
+      collection_name: va_regulations
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: va_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        dimension: 768
+        batch_size: 8
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: va_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 10
+      default: true
+    default_embedding_strategy: va_embeddings
+    default_retrieval_strategy: va_search
+  - name: va_knowledge_db
+    type: ChromaStore
+    config:
+      collection_name: va_knowledge
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: va_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        dimension: 768
+        batch_size: 8
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: knowledge_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 12
+      default: true
+    default_embedding_strategy: va_embeddings
+    default_retrieval_strategy: knowledge_search
+  - name: va_rating_schedules_db
+    type: ChromaStore
+    config:
+      collection_name: va_rating_schedules
+      distance_function: cosine
+      port: 8000
+    embedding_strategies:
+    - name: rating_embeddings
+      type: OllamaEmbedder
+      config:
+        model: nomic-embed-text
+        dimension: 768
+        batch_size: 8
+        auto_pull: true
+        timeout: 60
+      priority: 0
+    retrieval_strategies:
+    - name: rating_search
+      type: BasicSimilarityStrategy
+      config:
+        distance_metric: cosine
+        top_k: 8
+      default: true
+    default_embedding_strategy: rating_embeddings
+    default_retrieval_strategy: rating_search
+  data_processing_strategies:
+  - name: va_document_processor
+    description: 'Processor for VA regulations, rating schedules, claims decisions, medical records,
+      and guidance documents. Preserves paragraph structure and extracts VA-specific metadata.
+      '
+    parsers:
+    - type: TextParser_Python
+      config:
+        chunk_size: 1000
+        chunk_overlap: 250
+        chunk_strategy: paragraphs
+        encoding: utf-8
+        clean_text: false
+        extract_metadata: true
+      file_include_patterns:
+      - '*.txt'
+      - '*.md'
+      priority: 10
+    - type: PDFParser_LlamaIndex
+      config:
+        chunk_size: 1000
+        chunk_overlap: 250
+        chunk_strategy: paragraphs
+        extract_metadata: true
+      file_include_patterns:
+      - '*.pdf'
+      priority: 10
+    extractors:
+    - type: KeywordExtractor
+      config:
+        algorithm: yake
+        max_keywords: 20
+        min_keyword_length: 3
+      file_include_patterns:
+      - '*.txt'
+      - '*.pdf'
+      - '*.md'
+      priority: 10
+    - type: ContentStatisticsExtractor
+      config:
+        include_readability: true
+        include_vocabulary: true
+      file_include_patterns:
+      - '*.txt'
+      - '*.pdf'
+      - '*.md'
+      priority: 20
+datasets:
+- name: va_regulations
+  data_processing_strategy: va_document_processor
+  database: va_regulations_db
+  files: []
+- name: va_knowledge
+  data_processing_strategy: va_document_processor
+  database: va_knowledge_db
+  files: []
+- name: va_rating_schedules
+  data_processing_strategy: va_document_processor
+  database: va_rating_schedules_db
+  files: []
+runtime:
+  default_model: va_advisor
+  models:
+  - name: va_advisor
+    description: 'Primary capable model for comprehensive VA disability analysis and guidance.
+      Use this for final responses to veterans about their disability questions.
+      '
+    provider: ollama
+    model: qwen3:1.7b
+    prompts:
+    - va_general_assistant
+    tool_call_strategy: native_api
+  - name: fast
+    description: 'Fast small model for multi-hop query generation and structured outputs.
+      Used to analyze documents and generate focused search queries.
+      '
+    provider: ollama
+    model: gemma3:1b
+    prompts:
+    - va_general_assistant
+    tool_call_strategy: native_api
+  - name: claims_analyzer
+    description: 'Specialized model for analyzing VA claim decisions, denials, and appeals.
+      Use this when the veteran asks about claim denials or appeal strategies.
+      '
+    provider: ollama
+    model: qwen3:1.7b
+    prompts:
+    - va_claims_analyst
+    tool_call_strategy: native_api
+  - name: rating_advisor
+    description: 'Specialized model for VA rating schedules and disability percentages.
+      Use this when veteran asks about ratings, diagnostic codes, or percentage calculations.
+      '
+    provider: ollama
+    model: qwen3:1.7b
+    prompts:
+    - va_rating_advisor
+    tool_call_strategy: native_api
+  - name: evidence_specialist
+    description: 'Specialized model for evidence requirements and claim preparation.
+      Use this when veteran asks about what evidence they need or how to support their claim.
+      '
+    provider: ollama
+    model: qwen3:1.7b
+    prompts:
+    - va_evidence_specialist
+    tool_call_strategy: native_api
+  - name: reasoning
+    description: 'More powerful model for complex VA disability scenarios requiring deep reasoning.
+      Use for multi-step appeals, complex rating calculations, or intricate service connection issues.
+      Note: Requires more compute resources.
+      '
+    provider: ollama
+    model: qwen3:1.7b
+    prompts:
+    - va_general_assistant
+    tool_call_strategy: native_api

@@ -1,0 +1,90 @@
+2025/11/19 22:23:41 cwdConfigPath: /Users/robthelen/local-ai-apps/VA-disability-helper/llamafarm.yaml, homeConfigPath: /Users/robthelen/.llamafarm/projects/default/va-disability-helper-project/llamafarm.yaml
+2025/11/19 22:23:41 cwdConfigInfo: &{llamafarm.yaml 10846 384 {894449691 63899209415 0x10170ed60} {16777234 33152 1 92797112 501 20 0 [0 0 0 0] {1763612617 145365267} {1763612615 894449691} {1763612615 894449691} {1763612064 905151172} 10846 24 4096 0 0 0 [0 0]}}, homeConfigInfo: <nil>
+2025/11/19 22:23:41 ciErr: <nil>, hiErr: stat /Users/robthelen/.llamafarm/projects/default/va-disability-helper-project/llamafarm.yaml: no such file or directory
+2025/11/19 22:23:41 Watching target directory: /Users/robthelen/local-ai-apps/VA-disability-helper/llamafarm.yaml
+
+2025/11/19 22:23:41 Watching home directory: /Users/robthelen/.llamafarm/projects/default/va-disability-helper-project
+
+2025/11/19 22:23:41 Setting up native environment...
+
+2025/11/19 22:23:41 UV already installed at: /Users/robthelen/.llamafarm/bin/uv
+2025/11/19 22:23:41 UV already installed at: /Users/robthelen/.llamafarm/bin/uv
+2025/11/19 22:23:41 Python already available via UV: /Users/robthelen/.llamafarm/python/cpython-3.12.12-macos-aarch64-none/bin/python3.12
+2025/11/19 22:23:41 Using CLI version for source: v0.0.14
+2025/11/19 22:23:41 Source code already at version: v0.0.14
+2025/11/19 22:23:41 Datamodel is up-to-date, skipping generation
+2025/11/19 22:23:41 Native environment ready
+
+2025/11/19 22:23:41 GetServerHealth: checking http://localhost:8000/health
+2025/11/19 22:23:42 GetServerHealth: status=healthy, components=6
+2025/11/19 22:23:42 isServiceHealthy(server): component 'server' status='healthy', healthy=true
+2025/11/19 22:23:42 Service server is already healthy
+2025/11/19 22:23:42 HTTP GET http://localhost:8000/v1/projects/default/va-disability-helper-project/datasets/?include_extra_details=false
+2025/11/19 22:23:42   -> request body: <nil>
+2025/11/19 22:23:42   -> 422 Unprocessable Entity
+2025/11/19 22:23:42   response header: Content-Length: 122
+2025/11/19 22:23:42   response header: Content-Type: application/json
+2025/11/19 22:23:42   response header: Date: Thu, 20 Nov 2025 04:23:41 GMT
+2025/11/19 22:23:42   response header: Server: uvicorn
+2025/11/19 22:23:42   response header: X-Request-Id: ab5668d2a91b4617a93b0f9b90ce6096
+2025/11/19 22:23:42   -> response body: {"error":"ProjectConfigError","message":"Configuration validation error: 'version' is a required property","details":null}
+2025/11/19 22:23:59 cwdConfigPath: /Users/robthelen/local-ai-apps/VA-disability-helper/llamafarm.yaml, homeConfigPath: /Users/robthelen/.llamafarm/projects/default/va-disability-helper-project/llamafarm.yaml
+2025/11/19 22:23:59 cwdConfigInfo: &{llamafarm.yaml 10858 384 {305716863 63899209438 0x104942d60} {16777234 33152 1 92797112 501 20 0 [0 0 0 0] {1763612638 399390023} {1763612638 305716863} {1763612638 305716863} {1763612064 905151172} 10858 24 4096 0 0 0 [0 0]}}, homeConfigInfo: &{llamafarm.yaml 10846 384 {758896244 63899209421 0x104942d60} {16777234 33152 1 92799362 501 20 0 [0 0 0 0] {1763612623 900469084} {1763612621 758896244} {1763612621 767599918} {1763612621 758775533} 10846 24 4096 0 0 0 [0 0]}}
+2025/11/19 22:23:59 ciErr: <nil>, hiErr: <nil>
+2025/11/19 22:23:59 Watching target directory: /Users/robthelen/local-ai-apps/VA-disability-helper/llamafarm.yaml
+
+2025/11/19 22:23:59 Watching home directory: /Users/robthelen/.llamafarm/projects/default/va-disability-helper-project
+
+2025/11/19 22:23:59 Setting up native environment...
+
+2025/11/19 22:23:59 UV already installed at: /Users/robthelen/.llamafarm/bin/uv
+2025/11/19 22:23:59 UV already installed at: /Users/robthelen/.llamafarm/bin/uv
+2025/11/19 22:23:59 Python already available via UV: /Users/robthelen/.llamafarm/python/cpython-3.12.12-macos-aarch64-none/bin/python3.12
+2025/11/19 22:23:59 Using CLI version for source: v0.0.14
+2025/11/19 22:23:59 Source code already at version: v0.0.14
+2025/11/19 22:23:59 Datamodel is up-to-date, skipping generation
+2025/11/19 22:23:59 Native environment ready
+
+2025/11/19 22:23:59 GetServerHealth: checking http://localhost:8000/health
+2025/11/19 22:23:59 GetServerHealth: status=healthy, components=6
+2025/11/19 22:23:59 isServiceHealthy(server): component 'server' status='healthy', healthy=true
+2025/11/19 22:23:59 Service server is already healthy
+2025/11/19 22:23:59 HTTP GET http://localhost:8000/v1/projects/default/va-disability-helper-project/datasets/?include_extra_details=false
+2025/11/19 22:23:59   -> request body: <nil>
+2025/11/19 22:23:59   -> 200 OK
+2025/11/19 22:23:59   response header: Content-Length: 387
+2025/11/19 22:23:59   response header: Content-Type: application/json
+2025/11/19 22:23:59   response header: Date: Thu, 20 Nov 2025 04:23:59 GMT
+2025/11/19 22:23:59   response header: Server: uvicorn
+2025/11/19 22:23:59   response header: X-Request-Id: 3f17742a6f7441a4abeb0b7d3a5ff1d5
+2025/11/19 22:23:59   -> response body: {"total":3,"datasets":[{"name":"va_regulations","data_processing_strategy":"va_document_processor","database":"va_regulations_db","files":[]},{"name":"va_knowledge","data_processing_strategy":"va_document_processor","database":"va_knowledge_db","files":[]},{"name":"va_rating_schedules","data_processing_strategy":"va_document_processor","database":"va_rating_schedules_db","files":[]}]}
+2025/11/19 22:23:59 HTTP GET https://api.github.com/repos/llama-farm/llamafarm/releases/latest
+2025/11/19 22:23:59   request header: Accept: application/vnd.github+json
+2025/11/19 22:23:59   request header: User-Agent: LlamaFarmCLI/v0.0.14
+2025/11/19 22:23:59   -> request body: <nil>
+2025/11/19 22:24:00   -> 200 OK
+2025/11/19 22:24:00   response header: Accept-Ranges: bytes
+2025/11/19 22:24:00   response header: Access-Control-Allow-Origin: *
+2025/11/19 22:24:00   response header: Access-Control-Expose-Headers: ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset
+2025/11/19 22:24:00   response header: Cache-Control: public, max-age=60, s-maxage=60
+2025/11/19 22:24:00   response header: Content-Security-Policy: default-src 'none'
+2025/11/19 22:24:00   response header: Content-Type: application/json; charset=utf-8
+2025/11/19 22:24:00   response header: Date: Thu, 20 Nov 2025 04:24:00 GMT
+2025/11/19 22:24:00   response header: Etag: W/"e132c5693909f41d3247454cedb0dba688f7239698a73228f415aca2e03e2a21"
+2025/11/19 22:24:00   response header: Last-Modified: Thu, 13 Nov 2025 16:16:31 GMT
+2025/11/19 22:24:00   response header: Referrer-Policy: origin-when-cross-origin, strict-origin-when-cross-origin
+2025/11/19 22:24:00   response header: Server: github.com
+2025/11/19 22:24:00   response header: Strict-Transport-Security: max-age=31536000; includeSubdomains; preload
+2025/11/19 22:24:00   response header: Vary: Accept,Accept-Encoding, Accept, X-Requested-With
+2025/11/19 22:24:00   response header: X-Content-Type-Options: nosniff
+2025/11/19 22:24:00   response header: X-Frame-Options: deny
+2025/11/19 22:24:00   response header: X-Github-Api-Version-Selected: 2022-11-28
+2025/11/19 22:24:00   response header: X-Github-Media-Type: github.v3; format=json
+2025/11/19 22:24:00   response header: X-Github-Request-Id: CD62:11AD2E:67F33F:1D2C980:691E97DF
+2025/11/19 22:24:00   response header: X-Ratelimit-Limit: 60
+2025/11/19 22:24:00   response header: X-Ratelimit-Remaining: 58
+2025/11/19 22:24:00   response header: X-Ratelimit-Reset: 1763615267
+2025/11/19 22:24:00   response header: X-Ratelimit-Resource: core
+2025/11/19 22:24:00   response header: X-Ratelimit-Used: 2
+2025/11/19 22:24:00   response header: X-Xss-Protection: 0
+2025/11/19 22:24:00   -> response body: {"url":"https://api.github.com/repos/llama-farm/llamafarm/releases/262168248","assets_url":"https://api.github.com/repos/llama-farm/llamafarm/releases/262168248/assets","upload_url":"https://uploads.github.com/repos/llama-farm/llamafarm/releases/262168248/assets{?name,label}","html_url":"https://github.com/llama-farm/llamafarm/releases/tag/v0.0.14","id":262168248,"author":{"login":"mhamann","id":130131,"node_id":"MDQ6VXNlcjEzMDEzMQ==","avatar_url":"https://avatars.githubusercontent.com/u/130131?v=4","gravatar_id":"","url":"https://api.github.com/users/mhamann","html_url":"https://github.com/mhamann","followers_url":"https://api.github.com/users/mhamann/followers","following_url":"https://api.github.com/users/mhamann/following{/other_user}","gists_url":"https://api.github.com/users/mhamann/gists{/gist_id}","starred_url":"https://api.github.com/users/mhamann/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mhamann/subscriptions","organizations_url":"https://api.github.com/users/mhamann/... (truncated)
