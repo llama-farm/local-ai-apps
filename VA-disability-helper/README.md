@@ -42,9 +42,17 @@ Upload your VA documents (decision letters, medical records, C&P exams) for pers
 
 ## Prerequisites
 
-1. **LlamaFarm** - Install from [llamafarm.ai](https://llamafarm.ai)
-2. **Node.js** - Version 18 or higher
-3. **Ollama** (recommended) - For running local LLMs
+Before installing this application, you need:
+
+1. **LlamaFarm CLI** - Download and install from [https://llamafarm.ai](https://llamafarm.ai)
+   - macOS: `brew install llamafarm` or download from the website
+   - Windows: Download installer from the website
+   - Linux: Follow installation instructions on the website
+   - Verify installation: `lf --version`
+
+2. **Node.js** - Version 18 or higher from [https://nodejs.org](https://nodejs.org)
+
+3. **Ollama** (recommended) - For running local LLMs from [https://ollama.ai](https://ollama.ai)
 
 ## Installation
 
