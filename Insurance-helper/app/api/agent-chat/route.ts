@@ -247,18 +247,20 @@ export async function POST(req: NextRequest) {
         }
 
         // Step 2: Execute RAG queries in parallel
-        // Search BOTH handbook database and general policies database
-        sendUpdate("Searching knowledge base and your handbook...\n");
+        // Search ALL databases: policies, knowledge base, and handbook
+        sendUpdate("Searching insurance policies, knowledge base, and your handbook...\n");
 
         const ragUrl = `${LF_BASE_URL}/v1/projects/${encodeURIComponent(LF_NAMESPACE)}/${encodeURIComponent(LF_PROJECT)}/rag/query`;
 
         console.log(`=== EXECUTING ${queries.length} RAG QUERIES ===`);
         console.log("RAG URL:", ragUrl);
-        console.log("Primary Database:", LF_DATABASE);
-        console.log("Handbook Database: member_handbook_db");
+        console.log("Databases to search:");
+        console.log("  1. Primary (policies):", LF_DATABASE);
+        console.log("  2. Knowledge base: insurance_knowledge_db");
+        console.log("  3. Handbook: member_handbook_db");
 
-        // Search both databases in parallel
-        const databases = [LF_DATABASE, "member_handbook_db"];
+        // Search ALL three databases in parallel
+        const databases = [LF_DATABASE, "insurance_knowledge_db", "member_handbook_db"];
         const ragPromises = queries.flatMap(query =>
           databases.map(async (database, dbIdx) => {
             try {
@@ -294,6 +296,21 @@ export async function POST(req: NextRequest) {
         let allResults: RAGResult[] = ragResponses.flatMap((r) => r.results);
 
         console.log(`=== RAG RESULTS ===`);
+        console.log(`Total requests made: ${ragPromises.length}`);
+        console.log(`Total responses received: ${ragResponses.length}`);
+
+        // Log results per database
+        const resultsByDatabase = new Map<string, number>();
+        ragResponses.forEach(r => {
+          const count = resultsByDatabase.get(r.database) || 0;
+          resultsByDatabase.set(r.database, count + (r.results?.length || 0));
+        });
+
+        console.log(`Results by database:`);
+        resultsByDatabase.forEach((count, db) => {
+          console.log(`  - ${db}: ${count} results`);
+        });
+
         console.log(`Total initial results: ${allResults.length}`);
 
         // ENHANCEMENT: Document-level metadata filtering

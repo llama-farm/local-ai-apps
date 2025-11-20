@@ -73,44 +73,60 @@ export async function POST(req: NextRequest) {
 
     console.log(`Retrieved ${uniqueResults.length} unique handbook excerpts`);
 
-    // Step 2: Generate summary using LLM
+    // Step 2: Generate summary using LLM - limit context size
+    // Take first 10 results and truncate each to 500 chars to avoid overwhelming the model
     const handbookContext = uniqueResults
-      .map((r, idx) => `[Section ${idx + 1}]\n${r.content}`)
+      .slice(0, 10)
+      .map((r, idx) => `[Section ${idx + 1}]\n${r.content.substring(0, 500)}`)
       .join("\n\n");
 
     const chatUrl = `${LF_BASE_URL}/v1/projects/${encodeURIComponent(LF_NAMESPACE)}/${encodeURIComponent(LF_PROJECT)}/chat/completions`;
 
-    const summaryResponse = await fetch(chatUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        model: LF_MODEL,
-        messages: [
-          {
-            role: "user",
-            content: `${SUMMARY_PROMPT}\n\n---\n\nHANDBOOK CONTENT:\n${handbookContext}`,
-          },
-        ],
-        temperature: 0.3,
-        max_tokens: 1500,
-        rag_enabled: false,
-      }),
-    });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 60000); // 60s timeout
 
-    if (!summaryResponse.ok) {
-      throw new Error(`Summary generation failed: ${summaryResponse.statusText}`);
+    try {
+      const summaryResponse = await fetch(chatUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: LF_MODEL,
+          messages: [
+            {
+              role: "user",
+              content: `${SUMMARY_PROMPT}\n\n---\n\nHANDBOOK CONTENT:\n${handbookContext}`,
+            },
+          ],
+          temperature: 0.3,
+          max_tokens: 1500,
+          rag_enabled: false,
+        }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+
+      if (!summaryResponse.ok) {
+        const errorText = await summaryResponse.text();
+        throw new Error(`Summary generation failed (${summaryResponse.status}): ${errorText}`);
+      }
+
+      const summaryData = await summaryResponse.json();
+      const summary = summaryData.choices?.[0]?.message?.content || "";
+
+      console.log("Generated summary length:", summary.length);
+
+      return NextResponse.json({
+        summary,
+        excerpts_used: uniqueResults.length,
+        timestamp: new Date().toISOString(),
+      });
+    } catch (fetchError: any) {
+      clearTimeout(timeoutId);
+      if (fetchError.name === 'AbortError') {
+        throw new Error('Summary generation timed out after 60 seconds');
+      }
+      throw new Error(`Failed to connect to LlamaFarm server: ${fetchError.message}`);
     }
-
-    const summaryData = await summaryResponse.json();
-    const summary = summaryData.choices?.[0]?.message?.content || "";
-
-    console.log("Generated summary length:", summary.length);
-
-    return NextResponse.json({
-      summary,
-      excerpts_used: uniqueResults.length,
-      timestamp: new Date().toISOString(),
-    });
 
   } catch (error: any) {
     console.error("Summary generation error:", error);
