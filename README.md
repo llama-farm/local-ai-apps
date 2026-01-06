@@ -6,14 +6,34 @@ A curated collection of **100% local-first** applications powered by [LlamaFarm]
 
 All applications in this repository require:
 
-1. **LlamaFarm CLI** - Download and install from [https://llamafarm.ai](https://llamafarm.ai)
-   - macOS: `brew install llamafarm` or download from the website
-   - Windows: Download installer from the website
-   - Linux: Follow installation instructions on the website
+### 1. LlamaFarm
 
-2. **Ollama** (recommended) - For running local LLMs: [https://ollama.ai](https://ollama.ai)
+Download the desktop app for your platform:
 
-3. **Node.js** - Version 18 or higher: [https://nodejs.org](https://nodejs.org)
+| Platform | Download |
+|----------|----------|
+| Mac (M1+) | [Download](https://github.com/llama-farm/llamafarm/releases/latest/download/LlamaFarm-mac-arm64.dmg) |
+| Mac (Intel) | [Download](https://github.com/llama-farm/llamafarm/releases/latest/download/LlamaFarm-mac-x64.dmg) |
+| Windows | [Download](https://github.com/llama-farm/llamafarm/releases/latest/download/LlamaFarm-win-x64.exe) |
+| Linux (x86_64) | [Download](https://github.com/llama-farm/llamafarm/releases/latest/download/LlamaFarm-linux-x64.AppImage) |
+| Linux (ARM64) | [Download](https://github.com/llama-farm/llamafarm/releases/latest/download/LlamaFarm-linux-arm64.AppImage) |
+
+Or install via CLI:
+```bash
+# macOS/Linux
+curl -fsSL https://raw.githubusercontent.com/llama-farm/llamafarm/main/install.sh | bash
+
+# Windows
+winget install LlamaFarm.CLI
+```
+
+### 2. Ollama (recommended)
+
+For running local LLMs: [https://ollama.ai](https://ollama.ai)
+
+### 3. Node.js
+
+Version 18 or higher: [https://nodejs.org](https://nodejs.org)
 
 ## Applications
 
