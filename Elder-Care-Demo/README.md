@@ -1,10 +1,10 @@
 # Elder Care Monitoring Demo
 
+<img src="ui/public/elder-care.svg" alt="Elder Care" width="80" align="right">
+
 **Stop Using LLMs for Everything: A Guide to Private, Local AI**
 
 A demonstration of using specialized ML models alongside LLM agents for elder care monitoring. This demo shows how fast, local ML models (One-Class SVM for anomaly detection, SetFit for text classification) can handle routine processing while an LLM agent coordinates high-level decision making.
-
-![Elder Care Demo](ui/public/elder-care.svg)
 
 ## Why This Matters
 
