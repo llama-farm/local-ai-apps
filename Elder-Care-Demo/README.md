@@ -60,10 +60,13 @@ lf --help
 
 ### Option 2: Desktop App
 
-Download from [GitHub Releases](https://github.com/llama-farm/llamafarm/releases/latest):
-- macOS (M1/Intel)
-- Windows
-- Linux (x86_64/ARM64)
+| Platform | Download |
+|----------|----------|
+| Mac (M1+) | [Download](https://github.com/llama-farm/llamafarm/releases/latest/download/LlamaFarm-mac-arm64.dmg) |
+| Mac (Intel) | [Download](https://github.com/llama-farm/llamafarm/releases/latest/download/LlamaFarm-mac-x64.dmg) |
+| Windows | [Download](https://github.com/llama-farm/llamafarm/releases/latest/download/LlamaFarm-win-x64.exe) |
+| Linux (x86_64) | [Download](https://github.com/llama-farm/llamafarm/releases/latest/download/LlamaFarm-linux-x64.AppImage) |
+| Linux (ARM64) | [Download](https://github.com/llama-farm/llamafarm/releases/latest/download/LlamaFarm-linux-arm64.AppImage) |
 
 ### Initialize LlamaFarm Project
 
