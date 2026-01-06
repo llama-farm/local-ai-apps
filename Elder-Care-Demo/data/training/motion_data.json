@@ -1,0 +1,2002 @@
+[
+  {
+    "timestamp": "2024-01-15T06:55:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 68,
+    "motion_intensity": 0.73,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-15T07:21:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 45,
+    "motion_intensity": 0.37,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T08:14:00",
+    "room": "kitchen",
+    "hour": 8,
+    "activity_duration_minutes": 28,
+    "motion_intensity": 0.44,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T09:58:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 38,
+    "motion_intensity": 0.41,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T10:32:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 81,
+    "motion_intensity": 0.54,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T11:43:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 23,
+    "motion_intensity": 0.33,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T12:17:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 30,
+    "motion_intensity": 0.41,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T13:16:00",
+    "room": "living_room",
+    "hour": 13,
+    "activity_duration_minutes": 16,
+    "motion_intensity": 0.52,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T14:48:00",
+    "room": "living_room",
+    "hour": 14,
+    "activity_duration_minutes": 78,
+    "motion_intensity": 0.78,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T15:13:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 58,
+    "motion_intensity": 0.36,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T16:19:00",
+    "room": "living_room",
+    "hour": 16,
+    "activity_duration_minutes": 89,
+    "motion_intensity": 0.46,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T17:57:00",
+    "room": "bathroom",
+    "hour": 17,
+    "activity_duration_minutes": 7,
+    "motion_intensity": 0.8,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T18:56:00",
+    "room": "kitchen",
+    "hour": 18,
+    "activity_duration_minutes": 33,
+    "motion_intensity": 0.34,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T19:03:00",
+    "room": "kitchen",
+    "hour": 19,
+    "activity_duration_minutes": 32,
+    "motion_intensity": 0.49,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T20:01:00",
+    "room": "kitchen",
+    "hour": 20,
+    "activity_duration_minutes": 23,
+    "motion_intensity": 0.54,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-15T21:26:00",
+    "room": "bedroom",
+    "hour": 21,
+    "activity_duration_minutes": 35,
+    "motion_intensity": 0.8,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-16T06:21:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 77,
+    "motion_intensity": 0.64,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-16T07:48:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 44,
+    "motion_intensity": 0.33,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T08:59:00",
+    "room": "kitchen",
+    "hour": 8,
+    "activity_duration_minutes": 44,
+    "motion_intensity": 0.32,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T09:39:00",
+    "room": "kitchen",
+    "hour": 9,
+    "activity_duration_minutes": 32,
+    "motion_intensity": 0.76,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T10:01:00",
+    "room": "kitchen",
+    "hour": 10,
+    "activity_duration_minutes": 35,
+    "motion_intensity": 0.74,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T11:18:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 33,
+    "motion_intensity": 0.34,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T12:10:00",
+    "room": "living_room",
+    "hour": 12,
+    "activity_duration_minutes": 61,
+    "motion_intensity": 0.53,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T13:52:00",
+    "room": "bedroom",
+    "hour": 13,
+    "activity_duration_minutes": 56,
+    "motion_intensity": 0.52,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T14:42:00",
+    "room": "bedroom",
+    "hour": 14,
+    "activity_duration_minutes": 79,
+    "motion_intensity": 0.74,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T15:19:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 53,
+    "motion_intensity": 0.3,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T16:45:00",
+    "room": "kitchen",
+    "hour": 16,
+    "activity_duration_minutes": 11,
+    "motion_intensity": 0.39,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T17:14:00",
+    "room": "kitchen",
+    "hour": 17,
+    "activity_duration_minutes": 34,
+    "motion_intensity": 0.32,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T18:28:00",
+    "room": "kitchen",
+    "hour": 18,
+    "activity_duration_minutes": 22,
+    "motion_intensity": 0.32,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T19:25:00",
+    "room": "kitchen",
+    "hour": 19,
+    "activity_duration_minutes": 12,
+    "motion_intensity": 0.49,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T20:20:00",
+    "room": "kitchen",
+    "hour": 20,
+    "activity_duration_minutes": 23,
+    "motion_intensity": 0.65,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-16T21:28:00",
+    "room": "bedroom",
+    "hour": 21,
+    "activity_duration_minutes": 64,
+    "motion_intensity": 0.49,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-17T06:23:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 42,
+    "motion_intensity": 0.62,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-17T07:20:00",
+    "room": "bedroom",
+    "hour": 7,
+    "activity_duration_minutes": 73,
+    "motion_intensity": 0.49,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T08:11:00",
+    "room": "living_room",
+    "hour": 8,
+    "activity_duration_minutes": 48,
+    "motion_intensity": 0.55,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T09:27:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 50,
+    "motion_intensity": 0.67,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T10:35:00",
+    "room": "kitchen",
+    "hour": 10,
+    "activity_duration_minutes": 15,
+    "motion_intensity": 0.37,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T11:33:00",
+    "room": "kitchen",
+    "hour": 11,
+    "activity_duration_minutes": 12,
+    "motion_intensity": 0.74,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T12:57:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 37,
+    "motion_intensity": 0.52,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T13:25:00",
+    "room": "living_room",
+    "hour": 13,
+    "activity_duration_minutes": 82,
+    "motion_intensity": 0.43,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T14:07:00",
+    "room": "bathroom",
+    "hour": 14,
+    "activity_duration_minutes": 11,
+    "motion_intensity": 0.46,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T15:43:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 83,
+    "motion_intensity": 0.62,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T16:04:00",
+    "room": "living_room",
+    "hour": 16,
+    "activity_duration_minutes": 58,
+    "motion_intensity": 0.66,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T17:00:00",
+    "room": "kitchen",
+    "hour": 17,
+    "activity_duration_minutes": 38,
+    "motion_intensity": 0.61,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T18:00:00",
+    "room": "living_room",
+    "hour": 18,
+    "activity_duration_minutes": 90,
+    "motion_intensity": 0.79,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T19:46:00",
+    "room": "living_room",
+    "hour": 19,
+    "activity_duration_minutes": 71,
+    "motion_intensity": 0.54,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T20:44:00",
+    "room": "living_room",
+    "hour": 20,
+    "activity_duration_minutes": 83,
+    "motion_intensity": 0.54,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-17T21:32:00",
+    "room": "bathroom",
+    "hour": 21,
+    "activity_duration_minutes": 15,
+    "motion_intensity": 0.49,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T06:55:00",
+    "room": "bathroom",
+    "hour": 6,
+    "activity_duration_minutes": 13,
+    "motion_intensity": 0.46,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T07:42:00",
+    "room": "bedroom",
+    "hour": 7,
+    "activity_duration_minutes": 51,
+    "motion_intensity": 0.46,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T08:41:00",
+    "room": "kitchen",
+    "hour": 8,
+    "activity_duration_minutes": 28,
+    "motion_intensity": 0.46,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T09:17:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 21,
+    "motion_intensity": 0.69,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T10:56:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 15,
+    "motion_intensity": 0.67,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T11:20:00",
+    "room": "kitchen",
+    "hour": 11,
+    "activity_duration_minutes": 26,
+    "motion_intensity": 0.4,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T12:08:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 26,
+    "motion_intensity": 0.38,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T13:37:00",
+    "room": "bathroom",
+    "hour": 13,
+    "activity_duration_minutes": 8,
+    "motion_intensity": 0.3,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T14:54:00",
+    "room": "living_room",
+    "hour": 14,
+    "activity_duration_minutes": 88,
+    "motion_intensity": 0.52,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T15:18:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 47,
+    "motion_intensity": 0.77,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T16:53:00",
+    "room": "kitchen",
+    "hour": 16,
+    "activity_duration_minutes": 18,
+    "motion_intensity": 0.39,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T17:39:00",
+    "room": "living_room",
+    "hour": 17,
+    "activity_duration_minutes": 75,
+    "motion_intensity": 0.38,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T18:01:00",
+    "room": "living_room",
+    "hour": 18,
+    "activity_duration_minutes": 67,
+    "motion_intensity": 0.41,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T19:36:00",
+    "room": "living_room",
+    "hour": 19,
+    "activity_duration_minutes": 73,
+    "motion_intensity": 0.58,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T20:56:00",
+    "room": "living_room",
+    "hour": 20,
+    "activity_duration_minutes": 54,
+    "motion_intensity": 0.34,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-18T21:35:00",
+    "room": "bedroom",
+    "hour": 21,
+    "activity_duration_minutes": 32,
+    "motion_intensity": 0.65,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-19T06:11:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 84,
+    "motion_intensity": 0.78,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-19T07:52:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 39,
+    "motion_intensity": 0.43,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T08:22:00",
+    "room": "kitchen",
+    "hour": 8,
+    "activity_duration_minutes": 39,
+    "motion_intensity": 0.67,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T09:21:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 34,
+    "motion_intensity": 0.68,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T10:02:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 88,
+    "motion_intensity": 0.74,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T11:32:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 39,
+    "motion_intensity": 0.78,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T12:11:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 17,
+    "motion_intensity": 0.41,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T13:33:00",
+    "room": "bathroom",
+    "hour": 13,
+    "activity_duration_minutes": 11,
+    "motion_intensity": 0.72,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T14:20:00",
+    "room": "living_room",
+    "hour": 14,
+    "activity_duration_minutes": 31,
+    "motion_intensity": 0.62,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T15:06:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 56,
+    "motion_intensity": 0.48,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T16:55:00",
+    "room": "living_room",
+    "hour": 16,
+    "activity_duration_minutes": 15,
+    "motion_intensity": 0.8,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T17:54:00",
+    "room": "living_room",
+    "hour": 17,
+    "activity_duration_minutes": 33,
+    "motion_intensity": 0.5,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T18:00:00",
+    "room": "living_room",
+    "hour": 18,
+    "activity_duration_minutes": 56,
+    "motion_intensity": 0.46,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T19:22:00",
+    "room": "living_room",
+    "hour": 19,
+    "activity_duration_minutes": 69,
+    "motion_intensity": 0.62,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T20:25:00",
+    "room": "living_room",
+    "hour": 20,
+    "activity_duration_minutes": 67,
+    "motion_intensity": 0.52,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-19T21:36:00",
+    "room": "bedroom",
+    "hour": 21,
+    "activity_duration_minutes": 50,
+    "motion_intensity": 0.46,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-20T06:02:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 17,
+    "motion_intensity": 0.59,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-20T07:16:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 45,
+    "motion_intensity": 0.48,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T08:57:00",
+    "room": "living_room",
+    "hour": 8,
+    "activity_duration_minutes": 19,
+    "motion_intensity": 0.41,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T09:55:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 32,
+    "motion_intensity": 0.71,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T10:36:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 27,
+    "motion_intensity": 0.5,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T11:52:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 43,
+    "motion_intensity": 0.31,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T12:17:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 17,
+    "motion_intensity": 0.55,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T13:16:00",
+    "room": "kitchen",
+    "hour": 13,
+    "activity_duration_minutes": 28,
+    "motion_intensity": 0.65,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T14:34:00",
+    "room": "living_room",
+    "hour": 14,
+    "activity_duration_minutes": 88,
+    "motion_intensity": 0.35,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T15:43:00",
+    "room": "kitchen",
+    "hour": 15,
+    "activity_duration_minutes": 33,
+    "motion_intensity": 0.45,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T16:14:00",
+    "room": "living_room",
+    "hour": 16,
+    "activity_duration_minutes": 53,
+    "motion_intensity": 0.56,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T17:00:00",
+    "room": "kitchen",
+    "hour": 17,
+    "activity_duration_minutes": 25,
+    "motion_intensity": 0.47,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T18:02:00",
+    "room": "kitchen",
+    "hour": 18,
+    "activity_duration_minutes": 39,
+    "motion_intensity": 0.6,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T19:21:00",
+    "room": "living_room",
+    "hour": 19,
+    "activity_duration_minutes": 82,
+    "motion_intensity": 0.52,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T20:59:00",
+    "room": "bathroom",
+    "hour": 20,
+    "activity_duration_minutes": 4,
+    "motion_intensity": 0.46,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-20T21:47:00",
+    "room": "living_room",
+    "hour": 21,
+    "activity_duration_minutes": 87,
+    "motion_intensity": 0.56,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T06:46:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 51,
+    "motion_intensity": 0.49,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-21T07:46:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 22,
+    "motion_intensity": 0.72,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T08:49:00",
+    "room": "living_room",
+    "hour": 8,
+    "activity_duration_minutes": 30,
+    "motion_intensity": 0.36,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T09:56:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 69,
+    "motion_intensity": 0.4,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T10:45:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 72,
+    "motion_intensity": 0.33,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T11:27:00",
+    "room": "kitchen",
+    "hour": 11,
+    "activity_duration_minutes": 36,
+    "motion_intensity": 0.42,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T12:41:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 20,
+    "motion_intensity": 0.57,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T13:50:00",
+    "room": "kitchen",
+    "hour": 13,
+    "activity_duration_minutes": 15,
+    "motion_intensity": 0.69,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T14:03:00",
+    "room": "living_room",
+    "hour": 14,
+    "activity_duration_minutes": 18,
+    "motion_intensity": 0.57,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T15:31:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 40,
+    "motion_intensity": 0.59,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T16:41:00",
+    "room": "living_room",
+    "hour": 16,
+    "activity_duration_minutes": 38,
+    "motion_intensity": 0.45,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T17:03:00",
+    "room": "kitchen",
+    "hour": 17,
+    "activity_duration_minutes": 43,
+    "motion_intensity": 0.61,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T18:51:00",
+    "room": "kitchen",
+    "hour": 18,
+    "activity_duration_minutes": 32,
+    "motion_intensity": 0.64,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T19:18:00",
+    "room": "bathroom",
+    "hour": 19,
+    "activity_duration_minutes": 8,
+    "motion_intensity": 0.79,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T20:20:00",
+    "room": "living_room",
+    "hour": 20,
+    "activity_duration_minutes": 57,
+    "motion_intensity": 0.47,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-21T21:04:00",
+    "room": "bedroom",
+    "hour": 21,
+    "activity_duration_minutes": 25,
+    "motion_intensity": 0.78,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-22T06:37:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 56,
+    "motion_intensity": 0.63,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-22T07:11:00",
+    "room": "living_room",
+    "hour": 7,
+    "activity_duration_minutes": 20,
+    "motion_intensity": 0.48,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T08:52:00",
+    "room": "kitchen",
+    "hour": 8,
+    "activity_duration_minutes": 43,
+    "motion_intensity": 0.3,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T09:47:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 23,
+    "motion_intensity": 0.37,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T10:39:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 43,
+    "motion_intensity": 0.55,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T11:33:00",
+    "room": "kitchen",
+    "hour": 11,
+    "activity_duration_minutes": 37,
+    "motion_intensity": 0.44,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T12:37:00",
+    "room": "living_room",
+    "hour": 12,
+    "activity_duration_minutes": 62,
+    "motion_intensity": 0.7,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T13:45:00",
+    "room": "living_room",
+    "hour": 13,
+    "activity_duration_minutes": 19,
+    "motion_intensity": 0.31,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T14:18:00",
+    "room": "bedroom",
+    "hour": 14,
+    "activity_duration_minutes": 45,
+    "motion_intensity": 0.73,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T15:02:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 77,
+    "motion_intensity": 0.48,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T16:01:00",
+    "room": "kitchen",
+    "hour": 16,
+    "activity_duration_minutes": 23,
+    "motion_intensity": 0.68,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T17:05:00",
+    "room": "kitchen",
+    "hour": 17,
+    "activity_duration_minutes": 24,
+    "motion_intensity": 0.39,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T18:42:00",
+    "room": "bathroom",
+    "hour": 18,
+    "activity_duration_minutes": 7,
+    "motion_intensity": 0.3,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T19:13:00",
+    "room": "living_room",
+    "hour": 19,
+    "activity_duration_minutes": 45,
+    "motion_intensity": 0.52,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T20:26:00",
+    "room": "living_room",
+    "hour": 20,
+    "activity_duration_minutes": 46,
+    "motion_intensity": 0.68,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-22T21:43:00",
+    "room": "bathroom",
+    "hour": 21,
+    "activity_duration_minutes": 8,
+    "motion_intensity": 0.33,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T06:55:00",
+    "room": "bathroom",
+    "hour": 6,
+    "activity_duration_minutes": 7,
+    "motion_intensity": 0.47,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T07:27:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 21,
+    "motion_intensity": 0.42,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T08:45:00",
+    "room": "living_room",
+    "hour": 8,
+    "activity_duration_minutes": 54,
+    "motion_intensity": 0.5,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T09:19:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 86,
+    "motion_intensity": 0.73,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T10:07:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 81,
+    "motion_intensity": 0.47,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T11:44:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 80,
+    "motion_intensity": 0.57,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T12:30:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 10,
+    "motion_intensity": 0.44,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T13:01:00",
+    "room": "living_room",
+    "hour": 13,
+    "activity_duration_minutes": 89,
+    "motion_intensity": 0.66,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T14:58:00",
+    "room": "living_room",
+    "hour": 14,
+    "activity_duration_minutes": 80,
+    "motion_intensity": 0.64,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T15:50:00",
+    "room": "bathroom",
+    "hour": 15,
+    "activity_duration_minutes": 11,
+    "motion_intensity": 0.35,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T16:34:00",
+    "room": "kitchen",
+    "hour": 16,
+    "activity_duration_minutes": 32,
+    "motion_intensity": 0.73,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T17:15:00",
+    "room": "kitchen",
+    "hour": 17,
+    "activity_duration_minutes": 38,
+    "motion_intensity": 0.75,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T18:14:00",
+    "room": "kitchen",
+    "hour": 18,
+    "activity_duration_minutes": 43,
+    "motion_intensity": 0.64,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T19:17:00",
+    "room": "living_room",
+    "hour": 19,
+    "activity_duration_minutes": 17,
+    "motion_intensity": 0.66,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T20:54:00",
+    "room": "bedroom",
+    "hour": 20,
+    "activity_duration_minutes": 57,
+    "motion_intensity": 0.76,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-23T21:43:00",
+    "room": "bedroom",
+    "hour": 21,
+    "activity_duration_minutes": 66,
+    "motion_intensity": 0.68,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-24T06:53:00",
+    "room": "bathroom",
+    "hour": 6,
+    "activity_duration_minutes": 9,
+    "motion_intensity": 0.52,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T07:13:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 13,
+    "motion_intensity": 0.7,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T08:47:00",
+    "room": "living_room",
+    "hour": 8,
+    "activity_duration_minutes": 53,
+    "motion_intensity": 0.37,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T09:12:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 43,
+    "motion_intensity": 0.38,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T10:15:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 47,
+    "motion_intensity": 0.38,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T11:52:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 83,
+    "motion_intensity": 0.62,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T12:41:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 36,
+    "motion_intensity": 0.73,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T13:05:00",
+    "room": "kitchen",
+    "hour": 13,
+    "activity_duration_minutes": 13,
+    "motion_intensity": 0.6,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T14:53:00",
+    "room": "bathroom",
+    "hour": 14,
+    "activity_duration_minutes": 10,
+    "motion_intensity": 0.32,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T15:43:00",
+    "room": "bedroom",
+    "hour": 15,
+    "activity_duration_minutes": 71,
+    "motion_intensity": 0.66,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T16:44:00",
+    "room": "living_room",
+    "hour": 16,
+    "activity_duration_minutes": 80,
+    "motion_intensity": 0.47,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T17:49:00",
+    "room": "living_room",
+    "hour": 17,
+    "activity_duration_minutes": 57,
+    "motion_intensity": 0.78,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T18:26:00",
+    "room": "living_room",
+    "hour": 18,
+    "activity_duration_minutes": 75,
+    "motion_intensity": 0.51,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T19:33:00",
+    "room": "living_room",
+    "hour": 19,
+    "activity_duration_minutes": 54,
+    "motion_intensity": 0.39,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T20:29:00",
+    "room": "bedroom",
+    "hour": 20,
+    "activity_duration_minutes": 76,
+    "motion_intensity": 0.63,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-24T21:15:00",
+    "room": "bedroom",
+    "hour": 21,
+    "activity_duration_minutes": 42,
+    "motion_intensity": 0.32,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-25T06:37:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 79,
+    "motion_intensity": 0.41,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-25T07:15:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 10,
+    "motion_intensity": 0.42,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T08:13:00",
+    "room": "kitchen",
+    "hour": 8,
+    "activity_duration_minutes": 42,
+    "motion_intensity": 0.75,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T09:49:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 17,
+    "motion_intensity": 0.73,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T10:30:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 25,
+    "motion_intensity": 0.72,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T11:33:00",
+    "room": "kitchen",
+    "hour": 11,
+    "activity_duration_minutes": 11,
+    "motion_intensity": 0.57,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T12:45:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 23,
+    "motion_intensity": 0.34,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T13:38:00",
+    "room": "living_room",
+    "hour": 13,
+    "activity_duration_minutes": 40,
+    "motion_intensity": 0.36,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T14:23:00",
+    "room": "living_room",
+    "hour": 14,
+    "activity_duration_minutes": 58,
+    "motion_intensity": 0.35,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T15:53:00",
+    "room": "kitchen",
+    "hour": 15,
+    "activity_duration_minutes": 16,
+    "motion_intensity": 0.74,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T16:42:00",
+    "room": "living_room",
+    "hour": 16,
+    "activity_duration_minutes": 47,
+    "motion_intensity": 0.69,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T17:55:00",
+    "room": "living_room",
+    "hour": 17,
+    "activity_duration_minutes": 19,
+    "motion_intensity": 0.37,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T18:17:00",
+    "room": "kitchen",
+    "hour": 18,
+    "activity_duration_minutes": 43,
+    "motion_intensity": 0.76,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T19:02:00",
+    "room": "living_room",
+    "hour": 19,
+    "activity_duration_minutes": 59,
+    "motion_intensity": 0.63,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T20:23:00",
+    "room": "living_room",
+    "hour": 20,
+    "activity_duration_minutes": 83,
+    "motion_intensity": 0.49,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-25T21:31:00",
+    "room": "bedroom",
+    "hour": 21,
+    "activity_duration_minutes": 54,
+    "motion_intensity": 0.48,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-26T06:44:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 22,
+    "motion_intensity": 0.53,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-26T07:40:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 41,
+    "motion_intensity": 0.73,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T08:56:00",
+    "room": "living_room",
+    "hour": 8,
+    "activity_duration_minutes": 41,
+    "motion_intensity": 0.8,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T09:51:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 63,
+    "motion_intensity": 0.42,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T10:11:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 62,
+    "motion_intensity": 0.36,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T11:57:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 27,
+    "motion_intensity": 0.75,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T12:51:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 23,
+    "motion_intensity": 0.34,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T13:05:00",
+    "room": "living_room",
+    "hour": 13,
+    "activity_duration_minutes": 83,
+    "motion_intensity": 0.8,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T14:25:00",
+    "room": "living_room",
+    "hour": 14,
+    "activity_duration_minutes": 71,
+    "motion_intensity": 0.63,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T15:11:00",
+    "room": "bedroom",
+    "hour": 15,
+    "activity_duration_minutes": 73,
+    "motion_intensity": 0.68,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T16:09:00",
+    "room": "living_room",
+    "hour": 16,
+    "activity_duration_minutes": 29,
+    "motion_intensity": 0.74,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T17:12:00",
+    "room": "kitchen",
+    "hour": 17,
+    "activity_duration_minutes": 29,
+    "motion_intensity": 0.39,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T18:31:00",
+    "room": "bathroom",
+    "hour": 18,
+    "activity_duration_minutes": 4,
+    "motion_intensity": 0.71,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T19:22:00",
+    "room": "kitchen",
+    "hour": 19,
+    "activity_duration_minutes": 37,
+    "motion_intensity": 0.4,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T20:48:00",
+    "room": "living_room",
+    "hour": 20,
+    "activity_duration_minutes": 77,
+    "motion_intensity": 0.32,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-26T21:25:00",
+    "room": "bathroom",
+    "hour": 21,
+    "activity_duration_minutes": 14,
+    "motion_intensity": 0.75,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T06:26:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 72,
+    "motion_intensity": 0.47,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-27T07:39:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 33,
+    "motion_intensity": 0.4,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T08:52:00",
+    "room": "living_room",
+    "hour": 8,
+    "activity_duration_minutes": 42,
+    "motion_intensity": 0.5,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T09:45:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 30,
+    "motion_intensity": 0.8,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T10:03:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 34,
+    "motion_intensity": 0.7,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T11:02:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 78,
+    "motion_intensity": 0.3,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T12:06:00",
+    "room": "bathroom",
+    "hour": 12,
+    "activity_duration_minutes": 12,
+    "motion_intensity": 0.59,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T13:34:00",
+    "room": "living_room",
+    "hour": 13,
+    "activity_duration_minutes": 73,
+    "motion_intensity": 0.45,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T14:25:00",
+    "room": "bedroom",
+    "hour": 14,
+    "activity_duration_minutes": 53,
+    "motion_intensity": 0.79,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T15:54:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 58,
+    "motion_intensity": 0.72,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T16:24:00",
+    "room": "kitchen",
+    "hour": 16,
+    "activity_duration_minutes": 23,
+    "motion_intensity": 0.73,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T17:08:00",
+    "room": "living_room",
+    "hour": 17,
+    "activity_duration_minutes": 17,
+    "motion_intensity": 0.76,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T18:29:00",
+    "room": "kitchen",
+    "hour": 18,
+    "activity_duration_minutes": 26,
+    "motion_intensity": 0.66,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T19:16:00",
+    "room": "kitchen",
+    "hour": 19,
+    "activity_duration_minutes": 21,
+    "motion_intensity": 0.61,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T20:56:00",
+    "room": "living_room",
+    "hour": 20,
+    "activity_duration_minutes": 69,
+    "motion_intensity": 0.34,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-27T21:14:00",
+    "room": "living_room",
+    "hour": 21,
+    "activity_duration_minutes": 59,
+    "motion_intensity": 0.4,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T06:16:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 51,
+    "motion_intensity": 0.49,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-28T07:35:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 37,
+    "motion_intensity": 0.5,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T08:04:00",
+    "room": "kitchen",
+    "hour": 8,
+    "activity_duration_minutes": 41,
+    "motion_intensity": 0.63,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T09:16:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 87,
+    "motion_intensity": 0.66,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T10:08:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 79,
+    "motion_intensity": 0.67,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T11:33:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 73,
+    "motion_intensity": 0.43,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T12:52:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 26,
+    "motion_intensity": 0.44,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T13:26:00",
+    "room": "living_room",
+    "hour": 13,
+    "activity_duration_minutes": 84,
+    "motion_intensity": 0.32,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T14:56:00",
+    "room": "kitchen",
+    "hour": 14,
+    "activity_duration_minutes": 20,
+    "motion_intensity": 0.53,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T15:27:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 56,
+    "motion_intensity": 0.39,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T16:07:00",
+    "room": "living_room",
+    "hour": 16,
+    "activity_duration_minutes": 81,
+    "motion_intensity": 0.39,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T17:28:00",
+    "room": "living_room",
+    "hour": 17,
+    "activity_duration_minutes": 31,
+    "motion_intensity": 0.74,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T18:04:00",
+    "room": "bathroom",
+    "hour": 18,
+    "activity_duration_minutes": 3,
+    "motion_intensity": 0.39,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T19:49:00",
+    "room": "living_room",
+    "hour": 19,
+    "activity_duration_minutes": 52,
+    "motion_intensity": 0.55,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T20:35:00",
+    "room": "kitchen",
+    "hour": 20,
+    "activity_duration_minutes": 37,
+    "motion_intensity": 0.49,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-28T21:20:00",
+    "room": "bathroom",
+    "hour": 21,
+    "activity_duration_minutes": 5,
+    "motion_intensity": 0.78,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T06:53:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 65,
+    "motion_intensity": 0.37,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-29T07:34:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 17,
+    "motion_intensity": 0.69,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T08:12:00",
+    "room": "kitchen",
+    "hour": 8,
+    "activity_duration_minutes": 14,
+    "motion_intensity": 0.43,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T09:23:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 49,
+    "motion_intensity": 0.43,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T10:22:00",
+    "room": "bathroom",
+    "hour": 10,
+    "activity_duration_minutes": 4,
+    "motion_intensity": 0.35,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T11:41:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 60,
+    "motion_intensity": 0.36,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T12:20:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 20,
+    "motion_intensity": 0.34,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T13:58:00",
+    "room": "kitchen",
+    "hour": 13,
+    "activity_duration_minutes": 25,
+    "motion_intensity": 0.55,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T14:44:00",
+    "room": "living_room",
+    "hour": 14,
+    "activity_duration_minutes": 69,
+    "motion_intensity": 0.53,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T15:25:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 44,
+    "motion_intensity": 0.71,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T16:51:00",
+    "room": "living_room",
+    "hour": 16,
+    "activity_duration_minutes": 59,
+    "motion_intensity": 0.65,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T17:08:00",
+    "room": "kitchen",
+    "hour": 17,
+    "activity_duration_minutes": 20,
+    "motion_intensity": 0.62,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T18:38:00",
+    "room": "kitchen",
+    "hour": 18,
+    "activity_duration_minutes": 45,
+    "motion_intensity": 0.44,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T19:35:00",
+    "room": "living_room",
+    "hour": 19,
+    "activity_duration_minutes": 58,
+    "motion_intensity": 0.48,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T20:16:00",
+    "room": "living_room",
+    "hour": 20,
+    "activity_duration_minutes": 76,
+    "motion_intensity": 0.61,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-29T21:58:00",
+    "room": "bedroom",
+    "hour": 21,
+    "activity_duration_minutes": 81,
+    "motion_intensity": 0.36,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-30T06:14:00",
+    "room": "bedroom",
+    "hour": 6,
+    "activity_duration_minutes": 54,
+    "motion_intensity": 0.64,
+    "door_event": true
+  },
+  {
+    "timestamp": "2024-01-30T07:09:00",
+    "room": "kitchen",
+    "hour": 7,
+    "activity_duration_minutes": 31,
+    "motion_intensity": 0.55,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-30T08:44:00",
+    "room": "kitchen",
+    "hour": 8,
+    "activity_duration_minutes": 41,
+    "motion_intensity": 0.76,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-30T09:23:00",
+    "room": "living_room",
+    "hour": 9,
+    "activity_duration_minutes": 59,
+    "motion_intensity": 0.41,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-30T10:19:00",
+    "room": "living_room",
+    "hour": 10,
+    "activity_duration_minutes": 83,
+    "motion_intensity": 0.56,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-30T11:22:00",
+    "room": "living_room",
+    "hour": 11,
+    "activity_duration_minutes": 76,
+    "motion_intensity": 0.71,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-30T12:44:00",
+    "room": "kitchen",
+    "hour": 12,
+    "activity_duration_minutes": 35,
+    "motion_intensity": 0.72,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-30T13:39:00",
+    "room": "living_room",
+    "hour": 13,
+    "activity_duration_minutes": 72,
+    "motion_intensity": 0.45,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-30T14:49:00",
+    "room": "living_room",
+    "hour": 14,
+    "activity_duration_minutes": 59,
+    "motion_intensity": 0.66,
+    "door_event": false
+  },
+  {
+    "timestamp": "2024-01-30T15:19:00",
+    "room": "living_room",
+    "hour": 15,
+    "activity_duration_minutes": 60,
+    "motion_intensity": 0.3,
+    "door_event": false
+  }
+]

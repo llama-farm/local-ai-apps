@@ -87,6 +87,24 @@ A privacy-first AI assistant for understanding health insurance policies, medica
 
 ---
 
+### 👵 [Elder Care Demo](./Elder-Care-Demo)
+
+**Stop Using LLMs for Everything** – A demonstration of using specialized ML models alongside LLM agents for elder care monitoring. Shows how fast, local ML models handle routine processing while an LLM agent coordinates high-level decision making.
+
+**Key Features:**
+- ⚡ **100x Faster** – One-Class SVM anomaly detection in ~10ms vs 1-2s for LLM
+- 🎯 **SetFit Classification** – Voice transcript urgency classification (routine/concern/emergency/positive)
+- 🤖 **LLM Agent with Tools** – qwen3:8b coordinates decisions and takes actions
+- 📡 **Live Streaming Demo** – Watch "Margaret's Concerning Afternoon" unfold in real-time via SSE
+- 🔒 **100% Local** – Sensitive health data never leaves your network
+- ✅ **208 Tests** – Comprehensive test suite included
+
+**Tech Stack:** FastAPI, React, LlamaFarm Universal Runtime, SetFit, One-Class SVM, Tailwind
+
+**[View Documentation →](./Elder-Care-Demo/README.md)**
+
+---
+
 ## About LlamaFarm
 
 [LlamaFarm](https://docs.llamafarm.dev) is a local-first AI infrastructure framework that makes it easy to build privacy-preserving AI applications. It provides:

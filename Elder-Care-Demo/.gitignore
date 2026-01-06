@@ -1,0 +1,120 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# UV
+.uv/
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Node.js / Frontend
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Build outputs
+ui/dist/
+ui/build/
+*.local
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+debug.log
+logs/
+
+# LlamaFarm
+.llamafarm/
+
+# Claude Code
+.claude/context/
+.claude/context/*.log
+.claude/context/*.json
+!.claude/docs/
+!.claude/agents/
+!.claude/templates/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Test artifacts
+.hypothesis/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data files (generated, not tracked)
+# Uncomment if you want to exclude generated training data:
+# data/training/*.json
+
+# Model files (too large for git)
+*.joblib
+*.pkl
+*.model
+*.h5
+*.pt
+*.pth

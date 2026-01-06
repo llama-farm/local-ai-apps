@@ -1,0 +1,2252 @@
+[
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.4,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 41,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 45,
+    "door_events_count": 0,
+    "motion_intensity": 0.22,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 33,
+    "door_events_count": 0,
+    "motion_intensity": 0.2,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 17,
+    "door_events_count": 0,
+    "motion_intensity": 0.64,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 30,
+    "door_events_count": 0,
+    "motion_intensity": 0.36,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 35,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 18,
+    "door_events_count": 0,
+    "motion_intensity": 0.59,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 18,
+    "door_events_count": 0,
+    "motion_intensity": 0.17,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 25,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 45,
+    "door_events_count": 0,
+    "motion_intensity": 0.48,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 37,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.53,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.23,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 33,
+    "door_events_count": 0,
+    "motion_intensity": 0.63,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 36,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 40,
+    "door_events_count": 0,
+    "motion_intensity": 0.54,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 35,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 35,
+    "door_events_count": 0,
+    "motion_intensity": 0.59,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 21,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 45,
+    "door_events_count": 0,
+    "motion_intensity": 0.38,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 42,
+    "current_room": "bathroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 14,
+    "door_events_count": 0,
+    "motion_intensity": 0.37,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 34,
+    "current_room": "kitchen",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 33,
+    "door_events_count": 0,
+    "motion_intensity": 0.55,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 37,
+    "door_events_count": 0,
+    "motion_intensity": 0.52,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 39,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 43,
+    "door_events_count": 0,
+    "motion_intensity": 0.25,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 15,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.73,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 42,
+    "current_room": "bathroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 12,
+    "door_events_count": 0,
+    "motion_intensity": 0.29,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 38,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 37,
+    "door_events_count": 0,
+    "motion_intensity": 0.37,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 44,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 18,
+    "door_events_count": 0,
+    "motion_intensity": 0.46,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 13,
+    "current_room": "bedroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 30,
+    "door_events_count": 0,
+    "motion_intensity": 0.25,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 20,
+    "current_room": "living_room",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 25,
+    "door_events_count": 0,
+    "motion_intensity": 0.26,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 25,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.49,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 38,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 36,
+    "door_events_count": 0,
+    "motion_intensity": 0.3,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 39,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 36,
+    "door_events_count": 0,
+    "motion_intensity": 0.26,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 21,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 17,
+    "door_events_count": 0,
+    "motion_intensity": 0.38,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 29,
+    "current_room": "bathroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 14,
+    "door_events_count": 0,
+    "motion_intensity": 0.17,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 27,
+    "current_room": "bathroom",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 6,
+    "door_events_count": 0,
+    "motion_intensity": 0.38,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 30,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 29,
+    "door_events_count": 0,
+    "motion_intensity": 0.19,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 15,
+    "current_room": "kitchen",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 28,
+    "door_events_count": 0,
+    "motion_intensity": 0.56,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 38,
+    "door_events_count": 0,
+    "motion_intensity": 0.32,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 38,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 30,
+    "door_events_count": 0,
+    "motion_intensity": 0.31,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 29,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 34,
+    "door_events_count": 0,
+    "motion_intensity": 0.17,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 28,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 27,
+    "door_events_count": 0,
+    "motion_intensity": 0.17,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 20,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 29,
+    "door_events_count": 0,
+    "motion_intensity": 0.35,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 12,
+    "current_room": "bedroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 43,
+    "door_events_count": 0,
+    "motion_intensity": 0.27,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 18,
+    "current_room": "living_room",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 15,
+    "door_events_count": 0,
+    "motion_intensity": 0.4,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 14,
+    "current_room": "bathroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 6,
+    "door_events_count": 0,
+    "motion_intensity": 0.41,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 12,
+    "current_room": "bathroom",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 8,
+    "door_events_count": 0,
+    "motion_intensity": 0.2,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 36,
+    "current_room": "kitchen",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 32,
+    "door_events_count": 0,
+    "motion_intensity": 0.48,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 36,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 29,
+    "door_events_count": 0,
+    "motion_intensity": 0.45,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 20,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 28,
+    "door_events_count": 0,
+    "motion_intensity": 0.34,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 31,
+    "door_events_count": 0,
+    "motion_intensity": 0.43,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 33,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 25,
+    "door_events_count": 0,
+    "motion_intensity": 0.48,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 16,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 40,
+    "door_events_count": 0,
+    "motion_intensity": 0.6,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 23,
+    "door_events_count": 0,
+    "motion_intensity": 0.61,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 29,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 15,
+    "door_events_count": 0,
+    "motion_intensity": 0.25,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 27,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 37,
+    "door_events_count": 0,
+    "motion_intensity": 0.3,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 45,
+    "door_events_count": 0,
+    "motion_intensity": 0.41,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 27,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 27,
+    "door_events_count": 0,
+    "motion_intensity": 0.35,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 26,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 20,
+    "door_events_count": 0,
+    "motion_intensity": 0.19,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 33,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 22,
+    "door_events_count": 0,
+    "motion_intensity": 0.42,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 33,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 26,
+    "door_events_count": 0,
+    "motion_intensity": 0.49,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 21,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.44,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 25,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 42,
+    "door_events_count": 0,
+    "motion_intensity": 0.47,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 42,
+    "current_room": "bathroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 6,
+    "door_events_count": 0,
+    "motion_intensity": 0.5,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 42,
+    "current_room": "bathroom",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 11,
+    "door_events_count": 0,
+    "motion_intensity": 0.45,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 42,
+    "door_events_count": 0,
+    "motion_intensity": 0.36,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.55,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 15,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 27,
+    "door_events_count": 0,
+    "motion_intensity": 0.63,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 16,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.64,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 38,
+    "current_room": "bathroom",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 8,
+    "door_events_count": 0,
+    "motion_intensity": 0.27,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 22,
+    "current_room": "bathroom",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 17,
+    "door_events_count": 0,
+    "motion_intensity": 0.41,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 43,
+    "current_room": "bedroom",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 23,
+    "door_events_count": 0,
+    "motion_intensity": 0.19,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 35,
+    "current_room": "kitchen",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 40,
+    "door_events_count": 0,
+    "motion_intensity": 0.56,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 16,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 31,
+    "door_events_count": 0,
+    "motion_intensity": 0.59,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 21,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 34,
+    "door_events_count": 0,
+    "motion_intensity": 0.43,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.66,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 35,
+    "door_events_count": 0,
+    "motion_intensity": 0.41,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 16,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 43,
+    "door_events_count": 0,
+    "motion_intensity": 0.6,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 39,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 22,
+    "door_events_count": 0,
+    "motion_intensity": 0.44,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 38,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 24,
+    "door_events_count": 0,
+    "motion_intensity": 0.25,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.53,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 12,
+    "current_room": "bedroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 37,
+    "door_events_count": 0,
+    "motion_intensity": 0.32,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 36,
+    "current_room": "kitchen",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 44,
+    "door_events_count": 0,
+    "motion_intensity": 0.58,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 36,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 16,
+    "door_events_count": 0,
+    "motion_intensity": 0.54,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.37,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 27,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.27,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 23,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 20,
+    "door_events_count": 0,
+    "motion_intensity": 0.58,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 29,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 31,
+    "door_events_count": 0,
+    "motion_intensity": 0.14,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 26,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 15,
+    "door_events_count": 0,
+    "motion_intensity": 0.25,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 27,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 16,
+    "door_events_count": 0,
+    "motion_intensity": 0.31,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 20,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 17,
+    "door_events_count": 0,
+    "motion_intensity": 0.38,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 14,
+    "current_room": "bathroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 8,
+    "door_events_count": 0,
+    "motion_intensity": 0.58,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 37,
+    "current_room": "kitchen",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 26,
+    "door_events_count": 0,
+    "motion_intensity": 0.5,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 37,
+    "door_events_count": 0,
+    "motion_intensity": 0.24,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 35,
+    "door_events_count": 0,
+    "motion_intensity": 0.42,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 42,
+    "current_room": "bathroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 13,
+    "door_events_count": 0,
+    "motion_intensity": 0.43,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 19,
+    "door_events_count": 0,
+    "motion_intensity": 0.32,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 39,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 34,
+    "door_events_count": 0,
+    "motion_intensity": 0.41,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 29,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 8,
+    "door_events_count": 0,
+    "motion_intensity": 0.17,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 33,
+    "current_room": "kitchen",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 18,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 33,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 36,
+    "door_events_count": 0,
+    "motion_intensity": 0.43,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 19,
+    "door_events_count": 0,
+    "motion_intensity": 0.59,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 33,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 40,
+    "door_events_count": 0,
+    "motion_intensity": 0.5,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 13,
+    "current_room": "bedroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 38,
+    "door_events_count": 0,
+    "motion_intensity": 0.4,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 14,
+    "current_room": "bathroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 19,
+    "door_events_count": 0,
+    "motion_intensity": 0.42,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 37,
+    "door_events_count": 0,
+    "motion_intensity": 0.58,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 25,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 34,
+    "door_events_count": 0,
+    "motion_intensity": 0.46,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 39,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 35,
+    "door_events_count": 0,
+    "motion_intensity": 0.23,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 35,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 27,
+    "door_events_count": 0,
+    "motion_intensity": 0.57,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 44,
+    "door_events_count": 0,
+    "motion_intensity": 0.17,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 41,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 25,
+    "door_events_count": 0,
+    "motion_intensity": 0.22,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 18,
+    "current_room": "bathroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 7,
+    "door_events_count": 0,
+    "motion_intensity": 0.37,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 25,
+    "door_events_count": 0,
+    "motion_intensity": 0.69,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 28,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 29,
+    "door_events_count": 0,
+    "motion_intensity": 0.14,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 24,
+    "door_events_count": 0,
+    "motion_intensity": 0.49,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 32,
+    "door_events_count": 0,
+    "motion_intensity": 0.39,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 43,
+    "door_events_count": 0,
+    "motion_intensity": 0.36,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 43,
+    "door_events_count": 0,
+    "motion_intensity": 0.47,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 16,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 27,
+    "door_events_count": 0,
+    "motion_intensity": 0.81,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 36,
+    "door_events_count": 0,
+    "motion_intensity": 0.3,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 36,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 35,
+    "door_events_count": 0,
+    "motion_intensity": 0.48,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 13,
+    "current_room": "bedroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 41,
+    "door_events_count": 0,
+    "motion_intensity": 0.44,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 43,
+    "current_room": "bathroom",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 5,
+    "door_events_count": 0,
+    "motion_intensity": 0.27,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 21,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 36,
+    "door_events_count": 0,
+    "motion_intensity": 0.37,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 31,
+    "door_events_count": 0,
+    "motion_intensity": 0.49,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 44,
+    "door_events_count": 0,
+    "motion_intensity": 0.36,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 40,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "bathroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 7,
+    "door_events_count": 0,
+    "motion_intensity": 0.46,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 38,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 40,
+    "door_events_count": 0,
+    "motion_intensity": 0.3,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 23,
+    "current_room": "kitchen",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.61,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 19,
+    "door_events_count": 0,
+    "motion_intensity": 0.52,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 13,
+    "current_room": "bedroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 45,
+    "door_events_count": 0,
+    "motion_intensity": 0.27,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 30,
+    "current_room": "kitchen",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 23,
+    "door_events_count": 0,
+    "motion_intensity": 0.23,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 18,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 43,
+    "door_events_count": 0,
+    "motion_intensity": 0.53,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 37,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.49,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 16,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 28,
+    "door_events_count": 0,
+    "motion_intensity": 0.55,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 14,
+    "current_room": "bathroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 17,
+    "door_events_count": 0,
+    "motion_intensity": 0.46,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 21,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 24,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 20,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 27,
+    "door_events_count": 0,
+    "motion_intensity": 0.36,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 27,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.17,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 18,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 40,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 26,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 16,
+    "door_events_count": 0,
+    "motion_intensity": 0.41,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 35,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 23,
+    "door_events_count": 0,
+    "motion_intensity": 0.52,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 30,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 22,
+    "door_events_count": 0,
+    "motion_intensity": 0.18,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 33,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 24,
+    "door_events_count": 0,
+    "motion_intensity": 0.42,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 15,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 30,
+    "door_events_count": 0,
+    "motion_intensity": 0.66,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 30,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 20,
+    "door_events_count": 0,
+    "motion_intensity": 0.35,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 37,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 36,
+    "door_events_count": 0,
+    "motion_intensity": 0.5,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 20,
+    "door_events_count": 0,
+    "motion_intensity": 0.59,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 35,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 43,
+    "door_events_count": 0,
+    "motion_intensity": 0.77,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 34,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 22,
+    "door_events_count": 0,
+    "motion_intensity": 0.68,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 26,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 36,
+    "door_events_count": 0,
+    "motion_intensity": 0.18,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 25,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.46,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 17,
+    "door_events_count": 0,
+    "motion_intensity": 0.43,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 16,
+    "current_room": "bathroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 14,
+    "door_events_count": 0,
+    "motion_intensity": 0.64,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 35,
+    "current_room": "kitchen",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 29,
+    "door_events_count": 0,
+    "motion_intensity": 0.65,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 35,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 29,
+    "door_events_count": 0,
+    "motion_intensity": 0.5,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 16,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 45,
+    "door_events_count": 0,
+    "motion_intensity": 0.52,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 26,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 44,
+    "door_events_count": 0,
+    "motion_intensity": 0.36,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 33,
+    "current_room": "kitchen",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 15,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 17,
+    "door_events_count": 0,
+    "motion_intensity": 0.44,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 37,
+    "door_events_count": 0,
+    "motion_intensity": 0.63,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 34,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 25,
+    "door_events_count": 0,
+    "motion_intensity": 0.53,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 18,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 42,
+    "door_events_count": 0,
+    "motion_intensity": 0.37,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.27,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 30,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 29,
+    "door_events_count": 0,
+    "motion_intensity": 0.27,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 26,
+    "door_events_count": 0,
+    "motion_intensity": 0.72,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 26,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 44,
+    "door_events_count": 0,
+    "motion_intensity": 0.27,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 12,
+    "current_room": "bedroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 19,
+    "door_events_count": 0,
+    "motion_intensity": 0.38,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 15,
+    "door_events_count": 0,
+    "motion_intensity": 0.53,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 31,
+    "door_events_count": 0,
+    "motion_intensity": 0.22,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 21,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 29,
+    "door_events_count": 0,
+    "motion_intensity": 0.38,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 30,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.28,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 43,
+    "door_events_count": 0,
+    "motion_intensity": 0.35,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 41,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 27,
+    "door_events_count": 0,
+    "motion_intensity": 0.42,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 44,
+    "door_events_count": 0,
+    "motion_intensity": 0.42,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 32,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 34,
+    "door_events_count": 0,
+    "motion_intensity": 0.45,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 34,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.7,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 38,
+    "door_events_count": 1,
+    "motion_intensity": 0.52,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 29,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 23,
+    "door_events_count": 0,
+    "motion_intensity": 0.28,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 14,
+    "current_room": "bathroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 7,
+    "door_events_count": 0,
+    "motion_intensity": 0.54,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 18,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 41,
+    "door_events_count": 0,
+    "motion_intensity": 0.36,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 32,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 45,
+    "door_events_count": 0,
+    "motion_intensity": 0.31,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 36,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.64,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 42,
+    "current_room": "bathroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 19,
+    "door_events_count": 0,
+    "motion_intensity": 0.36,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 15,
+    "current_room": "kitchen",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 20,
+    "door_events_count": 0,
+    "motion_intensity": 0.59,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 25,
+    "door_events_count": 0,
+    "motion_intensity": 0.6,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 32,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 34,
+    "door_events_count": 0,
+    "motion_intensity": 0.49,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 30,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 23,
+    "door_events_count": 0,
+    "motion_intensity": 0.24,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 37,
+    "current_room": "kitchen",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 31,
+    "door_events_count": 0,
+    "motion_intensity": 0.59,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 11,
+    "door_events_count": 0,
+    "motion_intensity": 0.58,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 15,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 38,
+    "door_events_count": 0,
+    "motion_intensity": 0.72,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 20,
+    "door_events_count": 0,
+    "motion_intensity": 0.44,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 32,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.53,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 14,
+    "current_room": "bathroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 20,
+    "door_events_count": 0,
+    "motion_intensity": 0.5,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 37,
+    "door_events_count": 0,
+    "motion_intensity": 0.48,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 43,
+    "current_room": "bedroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 20,
+    "door_events_count": 0,
+    "motion_intensity": 0.22,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 29,
+    "current_room": "living_room",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 32,
+    "door_events_count": 0,
+    "motion_intensity": 0.05,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 42,
+    "door_events_count": 0,
+    "motion_intensity": 0.49,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "bathroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 15,
+    "door_events_count": 0,
+    "motion_intensity": 0.3,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 29,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 32,
+    "door_events_count": 0,
+    "motion_intensity": 0.08,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 43,
+    "current_room": "bedroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 41,
+    "door_events_count": 0,
+    "motion_intensity": 0.19,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 26,
+    "current_room": "living_room",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 31,
+    "door_events_count": 0,
+    "motion_intensity": 0.42,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 37,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 16,
+    "door_events_count": 0,
+    "motion_intensity": 0.53,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 23,
+    "door_events_count": 0,
+    "motion_intensity": 0.55,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 22,
+    "door_events_count": 0,
+    "motion_intensity": 0.18,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 41,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 24,
+    "door_events_count": 0,
+    "motion_intensity": 0.31,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 39,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 16,
+    "door_events_count": 0,
+    "motion_intensity": 0.18,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 26,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 5,
+    "door_events_count": 0,
+    "motion_intensity": 0.29,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 42,
+    "current_room": "bathroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 13,
+    "door_events_count": 0,
+    "motion_intensity": 0.49,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 12,
+    "current_room": "bedroom",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 18,
+    "door_events_count": 0,
+    "motion_intensity": 0.29,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "living_room",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 21,
+    "door_events_count": 0,
+    "motion_intensity": 0.42,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 12,
+    "current_room": "bedroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 45,
+    "door_events_count": 0,
+    "motion_intensity": 0.3,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 37,
+    "current_room": "kitchen",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 38,
+    "door_events_count": 0,
+    "motion_intensity": 0.42,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 35,
+    "door_events_count": 0,
+    "motion_intensity": 0.43,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 15,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 43,
+    "door_events_count": 0,
+    "motion_intensity": 0.6,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 39,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 39,
+    "door_events_count": 0,
+    "motion_intensity": 0.38,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "bathroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 12,
+    "door_events_count": 0,
+    "motion_intensity": 0.29,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 39,
+    "current_room": "living_room",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 24,
+    "door_events_count": 0,
+    "motion_intensity": 0.36,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 21,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 24,
+    "door_events_count": 0,
+    "motion_intensity": 0.37,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 32,
+    "door_events_count": 0,
+    "motion_intensity": 0.44,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 27,
+    "door_events_count": 0,
+    "motion_intensity": 0.6,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "bathroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 13,
+    "door_events_count": 0,
+    "motion_intensity": 0.38,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 15,
+    "current_room": "kitchen",
+    "previous_room": "bathroom",
+    "time_in_room_minutes": 42,
+    "door_events_count": 0,
+    "motion_intensity": 0.59,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 13,
+    "current_room": "bedroom",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 19,
+    "door_events_count": 0,
+    "motion_intensity": 0.52,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 35,
+    "current_room": "kitchen",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 45,
+    "door_events_count": 0,
+    "motion_intensity": 0.63,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 15,
+    "door_events_count": 0,
+    "motion_intensity": 0.5,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 20,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 32,
+    "door_events_count": 0,
+    "motion_intensity": 0.51,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 12,
+    "current_room": "bedroom",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 22,
+    "door_events_count": 0,
+    "motion_intensity": 0.38,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 18,
+    "current_room": "living_room",
+    "previous_room": "bedroom",
+    "time_in_room_minutes": 37,
+    "door_events_count": 0,
+    "motion_intensity": 0.27,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 18,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 23,
+    "door_events_count": 0,
+    "motion_intensity": 0.44,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 25,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 31,
+    "door_events_count": 0,
+    "motion_intensity": 0.52,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 41,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 30,
+    "door_events_count": 0,
+    "motion_intensity": 0.24,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 30,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 22,
+    "door_events_count": 0,
+    "motion_intensity": 0.33,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 29,
+    "door_events_count": 0,
+    "motion_intensity": 0.5,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 27,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 20,
+    "door_events_count": 0,
+    "motion_intensity": 0.35,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 28,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 16,
+    "door_events_count": 0,
+    "motion_intensity": 0.14,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 17,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 37,
+    "door_events_count": 0,
+    "motion_intensity": 0.43,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 38,
+    "door_events_count": 0,
+    "motion_intensity": 0.44,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 20,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 32,
+    "door_events_count": 0,
+    "motion_intensity": 0.43,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 40,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 22,
+    "door_events_count": 0,
+    "motion_intensity": 0.27,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 22,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 31,
+    "door_events_count": 0,
+    "motion_intensity": 0.41,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 37,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 41,
+    "door_events_count": 0,
+    "motion_intensity": 0.46,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 38,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 22,
+    "door_events_count": 0,
+    "motion_intensity": 0.26,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 31,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 16,
+    "door_events_count": 0,
+    "motion_intensity": 0.43,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 21,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 12,
+    "door_events_count": 1,
+    "motion_intensity": 0.41,
+    "is_expected_location": false
+  },
+  {
+    "time_window": 16,
+    "current_room": "kitchen",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 16,
+    "door_events_count": 0,
+    "motion_intensity": 0.59,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 30,
+    "current_room": "living_room",
+    "previous_room": "kitchen",
+    "time_in_room_minutes": 19,
+    "door_events_count": 0,
+    "motion_intensity": 0.22,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 19,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 27,
+    "door_events_count": 0,
+    "motion_intensity": 0.34,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 21,
+    "current_room": "living_room",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 28,
+    "door_events_count": 0,
+    "motion_intensity": 0.46,
+    "is_expected_location": true
+  },
+  {
+    "time_window": 24,
+    "current_room": "kitchen",
+    "previous_room": "living_room",
+    "time_in_room_minutes": 45,
+    "door_events_count": 0,
+    "motion_intensity": 0.57,
+    "is_expected_location": true
+  }
+]

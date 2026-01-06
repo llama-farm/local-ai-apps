@@ -1,0 +1,402 @@
+[
+  {
+    "text": "Good morning, time to get up",
+    "label": "routine"
+  },
+  {
+    "text": "What's on TV today",
+    "label": "routine"
+  },
+  {
+    "text": "I think I'll have some tea",
+    "label": "routine"
+  },
+  {
+    "text": "The weather looks nice outside",
+    "label": "routine"
+  },
+  {
+    "text": "Time for my medication",
+    "label": "routine"
+  },
+  {
+    "text": "I should call Sarah later",
+    "label": "routine"
+  },
+  {
+    "text": "What day is it today",
+    "label": "routine"
+  },
+  {
+    "text": "I need to water the plants",
+    "label": "routine"
+  },
+  {
+    "text": "Let me check the mail",
+    "label": "routine"
+  },
+  {
+    "text": "Time for my afternoon show",
+    "label": "routine"
+  },
+  {
+    "text": "I wonder what's for dinner",
+    "label": "routine"
+  },
+  {
+    "text": "The cat needs feeding",
+    "label": "routine"
+  },
+  {
+    "text": "Let me turn on some music",
+    "label": "routine"
+  },
+  {
+    "text": "I should do some reading",
+    "label": "routine"
+  },
+  {
+    "text": "Time to rest my eyes a bit",
+    "label": "routine"
+  },
+  {
+    "text": "I'll make some lunch now",
+    "label": "routine"
+  },
+  {
+    "text": "Need to take my vitamins",
+    "label": "routine"
+  },
+  {
+    "text": "Going to sit in the garden",
+    "label": "routine"
+  },
+  {
+    "text": "Let me check the calendar",
+    "label": "routine"
+  },
+  {
+    "text": "I should organize these photos",
+    "label": "routine"
+  },
+  {
+    "text": "Time for my crossword puzzle",
+    "label": "routine"
+  },
+  {
+    "text": "Going to listen to the radio",
+    "label": "routine"
+  },
+  {
+    "text": "Let me put on my sweater",
+    "label": "routine"
+  },
+  {
+    "text": "I'll have a snack",
+    "label": "routine"
+  },
+  {
+    "text": "Need to refill my water glass",
+    "label": "routine"
+  },
+  {
+    "text": "I feel a bit dizzy",
+    "label": "concern"
+  },
+  {
+    "text": "My chest feels tight",
+    "label": "concern"
+  },
+  {
+    "text": "I'm not feeling well today",
+    "label": "concern"
+  },
+  {
+    "text": "I feel weak",
+    "label": "concern"
+  },
+  {
+    "text": "My head hurts",
+    "label": "concern"
+  },
+  {
+    "text": "I'm having trouble breathing",
+    "label": "concern"
+  },
+  {
+    "text": "I feel nauseous",
+    "label": "concern"
+  },
+  {
+    "text": "My legs feel wobbly",
+    "label": "concern"
+  },
+  {
+    "text": "I think I need to sit down",
+    "label": "concern"
+  },
+  {
+    "text": "I feel very tired suddenly",
+    "label": "concern"
+  },
+  {
+    "text": "Something doesn't feel right",
+    "label": "concern"
+  },
+  {
+    "text": "I'm feeling lightheaded",
+    "label": "concern"
+  },
+  {
+    "text": "My arm feels numb",
+    "label": "concern"
+  },
+  {
+    "text": "I'm feeling confused",
+    "label": "concern"
+  },
+  {
+    "text": "I can't catch my breath",
+    "label": "concern"
+  },
+  {
+    "text": "My heart is racing",
+    "label": "concern"
+  },
+  {
+    "text": "I feel very cold",
+    "label": "concern"
+  },
+  {
+    "text": "I'm sweating a lot",
+    "label": "concern"
+  },
+  {
+    "text": "I feel faint",
+    "label": "concern"
+  },
+  {
+    "text": "My vision is blurry",
+    "label": "concern"
+  },
+  {
+    "text": "I think I should rest",
+    "label": "concern"
+  },
+  {
+    "text": "I don't feel steady",
+    "label": "concern"
+  },
+  {
+    "text": "I'm having some pain",
+    "label": "concern"
+  },
+  {
+    "text": "I feel off today",
+    "label": "concern"
+  },
+  {
+    "text": "Something's wrong",
+    "label": "concern"
+  },
+  {
+    "text": "Help! I've fallen and I can't get up",
+    "label": "emergency"
+  },
+  {
+    "text": "I can't breathe, call 911",
+    "label": "emergency"
+  },
+  {
+    "text": "I think I'm having a heart attack",
+    "label": "emergency"
+  },
+  {
+    "text": "Help me please, I'm hurt",
+    "label": "emergency"
+  },
+  {
+    "text": "Someone call an ambulance",
+    "label": "emergency"
+  },
+  {
+    "text": "I've fallen, I need help",
+    "label": "emergency"
+  },
+  {
+    "text": "I can't move, help me",
+    "label": "emergency"
+  },
+  {
+    "text": "My chest, it hurts so bad",
+    "label": "emergency"
+  },
+  {
+    "text": "I'm having a stroke I think",
+    "label": "emergency"
+  },
+  {
+    "text": "Please help, I'm in pain",
+    "label": "emergency"
+  },
+  {
+    "text": "I need emergency help now",
+    "label": "emergency"
+  },
+  {
+    "text": "Call my daughter, something's wrong",
+    "label": "emergency"
+  },
+  {
+    "text": "I'm bleeding, I need help",
+    "label": "emergency"
+  },
+  {
+    "text": "I can't feel my legs",
+    "label": "emergency"
+  },
+  {
+    "text": "Help! Fire!",
+    "label": "emergency"
+  },
+  {
+    "text": "I'm choking, help",
+    "label": "emergency"
+  },
+  {
+    "text": "Call for help immediately",
+    "label": "emergency"
+  },
+  {
+    "text": "I've hurt myself badly",
+    "label": "emergency"
+  },
+  {
+    "text": "This is an emergency",
+    "label": "emergency"
+  },
+  {
+    "text": "I need an ambulance right now",
+    "label": "emergency"
+  },
+  {
+    "text": "Please, someone help me",
+    "label": "emergency"
+  },
+  {
+    "text": "I'm very sick, call the doctor",
+    "label": "emergency"
+  },
+  {
+    "text": "Help! I'm stuck",
+    "label": "emergency"
+  },
+  {
+    "text": "I need to go to the hospital",
+    "label": "emergency"
+  },
+  {
+    "text": "Call 911 now",
+    "label": "emergency"
+  },
+  {
+    "text": "I'm feeling great today",
+    "label": "positive"
+  },
+  {
+    "text": "What a lovely morning",
+    "label": "positive"
+  },
+  {
+    "text": "I slept really well last night",
+    "label": "positive"
+  },
+  {
+    "text": "I feel wonderful",
+    "label": "positive"
+  },
+  {
+    "text": "Today is a good day",
+    "label": "positive"
+  },
+  {
+    "text": "I'm feeling strong today",
+    "label": "positive"
+  },
+  {
+    "text": "My energy is good",
+    "label": "positive"
+  },
+  {
+    "text": "I feel happy",
+    "label": "positive"
+  },
+  {
+    "text": "Everything is fine",
+    "label": "positive"
+  },
+  {
+    "text": "I'm doing well",
+    "label": "positive"
+  },
+  {
+    "text": "Feeling better than yesterday",
+    "label": "positive"
+  },
+  {
+    "text": "I have a good appetite today",
+    "label": "positive"
+  },
+  {
+    "text": "I feel refreshed",
+    "label": "positive"
+  },
+  {
+    "text": "My spirits are high",
+    "label": "positive"
+  },
+  {
+    "text": "I'm comfortable and content",
+    "label": "positive"
+  },
+  {
+    "text": "Feeling quite well actually",
+    "label": "positive"
+  },
+  {
+    "text": "I'm in good shape today",
+    "label": "positive"
+  },
+  {
+    "text": "Nothing to worry about",
+    "label": "positive"
+  },
+  {
+    "text": "All is well here",
+    "label": "positive"
+  },
+  {
+    "text": "I'm feeling healthy",
+    "label": "positive"
+  },
+  {
+    "text": "Good day so far",
+    "label": "positive"
+  },
+  {
+    "text": "I feel peaceful",
+    "label": "positive"
+  },
+  {
+    "text": "Everything is as it should be",
+    "label": "positive"
+  },
+  {
+    "text": "I'm quite alright",
+    "label": "positive"
+  },
+  {
+    "text": "Feeling tip top",
+    "label": "positive"
+  }
+]

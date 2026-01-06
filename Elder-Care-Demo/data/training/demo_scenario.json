@@ -1,0 +1,158 @@
+{
+  "title": "Margaret's Concerning Afternoon",
+  "description": "A series of events that trigger the care monitoring system",
+  "total_duration_seconds": 120,
+  "events": [
+    {
+      "time_label": "2:15 PM",
+      "delay_ms": 0,
+      "type": "voice",
+      "data": {
+        "text": "I feel a bit dizzy",
+        "confidence": 0.95
+      },
+      "expected_classification": "concern",
+      "narrator": "Margaret mentions feeling dizzy while in the living room"
+    },
+    {
+      "time_label": "2:16 PM",
+      "delay_ms": 8000,
+      "type": "motion",
+      "data": {
+        "room": "living_room",
+        "activity_duration_minutes": 45,
+        "motion_intensity": 0.15,
+        "hour": 14
+      },
+      "expected_anomaly": true,
+      "narrator": "Motion sensors detect unusual stillness - Margaret hasn't moved much"
+    },
+    {
+      "time_label": "2:17 PM",
+      "delay_ms": 16000,
+      "type": "biometric",
+      "data": {
+        "heart_rate": 95,
+        "systolic_bp": 95,
+        "diastolic_bp": 58,
+        "temperature": 97.2,
+        "activity_level": "resting"
+      },
+      "expected_anomaly": true,
+      "narrator": "Heart rate elevated, blood pressure dropping - concerning signs"
+    },
+    {
+      "time_label": "2:18 PM",
+      "delay_ms": 24000,
+      "type": "voice",
+      "data": {
+        "text": "I think I need to sit down, I'm not feeling well",
+        "confidence": 0.92
+      },
+      "expected_classification": "concern",
+      "narrator": "Margaret expresses more discomfort"
+    },
+    {
+      "time_label": "2:19 PM",
+      "delay_ms": 32000,
+      "type": "motion",
+      "data": {
+        "room": "living_room",
+        "activity_duration_minutes": 50,
+        "motion_intensity": 0.08,
+        "hour": 14
+      },
+      "expected_anomaly": true,
+      "narrator": "Still no movement toward kitchen - missed her usual snack time"
+    },
+    {
+      "time_label": "2:20 PM",
+      "delay_ms": 40000,
+      "type": "biometric",
+      "data": {
+        "heart_rate": 88,
+        "systolic_bp": 100,
+        "diastolic_bp": 62,
+        "temperature": 97.4,
+        "activity_level": "resting"
+      },
+      "expected_anomaly": true,
+      "narrator": "Vitals slightly improved but still concerning"
+    },
+    {
+      "time_label": "2:21 PM",
+      "delay_ms": 48000,
+      "type": "voice",
+      "data": {
+        "text": "I'm okay, just need to rest",
+        "confidence": 0.88
+      },
+      "expected_classification": "routine",
+      "narrator": "Margaret tries to reassure, but pattern is concerning"
+    },
+    {
+      "time_label": "2:22 PM",
+      "delay_ms": 56000,
+      "type": "agent_summary",
+      "data": {
+        "anomalies_detected": 4,
+        "concern_classifications": 2,
+        "time_since_last_kitchen": "3+ hours",
+        "motion_pattern": "abnormally_still"
+      },
+      "narrator": "AI Agent analyzes accumulated data from last 10 minutes"
+    },
+    {
+      "time_label": "2:22 PM",
+      "delay_ms": 64000,
+      "type": "agent_decision",
+      "data": {
+        "decision": "escalate",
+        "reasoning": "Multiple concerning signals: elevated HR, low BP, expressed dizziness, unusual inactivity. Pattern suggests possible hypotensive episode.",
+        "actions": [
+          "call_emergency_contact",
+          "send_alert"
+        ]
+      },
+      "narrator": "Agent decides to contact Margaret's daughter Sarah"
+    },
+    {
+      "time_label": "2:23 PM",
+      "delay_ms": 72000,
+      "type": "tool_execution",
+      "data": {
+        "tool": "call_emergency_contact",
+        "arguments": {
+          "reason": "Multiple health concerns detected: dizziness, low blood pressure, elevated heart rate, unusual inactivity",
+          "urgency": "high"
+        },
+        "result": "Calling Sarah (daughter) at 555-0123..."
+      },
+      "narrator": "System contacts Sarah with situation summary"
+    },
+    {
+      "time_label": "2:23 PM",
+      "delay_ms": 80000,
+      "type": "tool_execution",
+      "data": {
+        "tool": "send_alert",
+        "arguments": {
+          "message": "Potential hypotensive episode detected. Margaret expressed dizziness, vitals show low BP (100/62), elevated HR (88). Currently resting in living room.",
+          "level": "urgent"
+        },
+        "result": "Alert sent to care team dashboard"
+      },
+      "narrator": "Care team receives detailed alert"
+    },
+    {
+      "time_label": "2:24 PM",
+      "delay_ms": 88000,
+      "type": "resolution",
+      "data": {
+        "outcome": "Sarah calls Margaret, confirms she's feeling better after resting. Plans to visit this evening to check on her. Doctor appointment scheduled for tomorrow.",
+        "status": "resolved_safely"
+      },
+      "narrator": "Situation resolved - early detection prevented potential emergency"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+version: v1
+name: elder-care-demo
+namespace: default
+
+runtime:
+  default_model: care_agent
+  models:
+    - name: care_agent
+      provider: ollama
+      model: qwen3:8b
+      base_url: http://127.0.0.1:11434
+      tool_call_strategy: native_api
+      tools:
+        - type: function
+          name: call_emergency_contact
+          description: Call Margaret's emergency contact (her daughter Sarah) to report a concerning situation
+          parameters:
+            type: object
+            required:
+              - reason
+              - urgency
+            properties:
+              reason:
+                type: string
+                description: Summary of why we're calling the emergency contact
+              urgency:
+                type: string
+                enum: ["low", "medium", "high", "critical"]
+                description: How urgent is this situation
+
+        - type: function
+          name: send_alert
+          description: Send an alert notification to the care team dashboard
+          parameters:
+            type: object
+            required:
+              - message
+              - level
+            properties:
+              message:
+                type: string
+                description: The alert message content
+              level:
+                type: string
+                enum: ["info", "warning", "urgent"]
+                description: Alert severity level
+
+        - type: function
+          name: adjust_monitoring
+          description: Increase or decrease the monitoring frequency for Margaret
+          parameters:
+            type: object
+            required:
+              - frequency
+              - duration_minutes
+            properties:
+              frequency:
+                type: string
+                enum: ["normal", "elevated", "high"]
+                description: How frequently to check sensors
+              duration_minutes:
+                type: integer
+                description: How long to maintain this frequency
+
+        - type: function
+          name: log_observation
+          description: Log an observation for later review by caregivers
+          parameters:
+            type: object
+            required:
+              - observation
+              - category
+            properties:
+              observation:
+                type: string
+                description: What was observed
+              category:
+                type: string
+                enum: ["health", "activity", "communication"]
+                description: Category of observation
+
+prompts:
+  - name: care_system
+    messages:
+      - role: system
+        content: |
+          You are an AI care assistant monitoring Margaret, an 78-year-old woman living alone.
+          You receive data from biometric sensors, motion detectors, and voice transcripts.
+
+          Your job is to:
+          1. Analyze incoming data for concerning patterns
+          2. Take appropriate action using available tools
+          3. Balance being helpful with not being alarmist
+
+          Guidelines:
+          - Single concerning data point: log_observation, consider adjust_monitoring to elevated
+          - Multiple concerning signals in short time: send_alert to care team
+          - Clear emergency situation: call_emergency_contact immediately
+          - False alarms are better than missed emergencies
+          - Always explain your reasoning before taking action
+
+          Available context about Margaret:
+          - Normal heart rate: 68-78 bpm
+          - Normal blood pressure: 118-128 / 75-82 mmHg
+          - Normal temperature: 97.8-98.4 F
+          - Daily routine: Kitchen active 7-9am, 12-1pm, 6-7pm
+          - Usually in living room 2-4pm watching TV
+          - Goes to bed around 9pm
+
+          When you receive data, analyze it and decide what action (if any) to take.
